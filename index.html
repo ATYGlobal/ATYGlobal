@@ -780,6 +780,54 @@ body.modal-open .modal-backdrop { filter: none; }
   transform: translate(-50%, -50%);
   transition: transform 0.15s linear;
 }
+
+/* ═══════════════════════════════════════════════
+   LOAD MORE SYSTEM — Universal v4
+═══════════════════════════════════════════════ */
+.lm-item-hidden { display:none !important; }
+@keyframes lm-fadein { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+.lm-item-visible  { animation:lm-fadein .55s cubic-bezier(.16,1,.3,1) both; }
+.lm-item-search-show { display:flex !important; animation:lm-fadein .3s ease both; }
+.lm-wrap { display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:44px;transition:opacity .4s ease; }
+.lm-wrap.lm-gone { opacity:0;pointer-events:none; }
+.btn-lm { display:inline-flex;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:400;letter-spacing:.13em;text-transform:uppercase;padding:15px 40px;border-radius:14px;cursor:pointer;border:1px solid var(--bdr3);position:relative;overflow:hidden;background:var(--bg-1);color:var(--t1);transition:color .25s,border-color .25s,box-shadow .25s,transform .25s cubic-bezier(.16,1,.3,1),background .25s; }
+.btn-lm::before { content:'';position:absolute;inset:0;border-radius:14px;background:linear-gradient(135deg,rgba(59,126,248,.09) 0%,rgba(14,196,212,.06) 100%);opacity:0;transition:opacity .25s; }
+.btn-lm:hover { color:var(--t0);border-color:rgba(59,126,248,.5);box-shadow:0 0 0 1px rgba(59,126,248,.14),0 10px 36px rgba(59,126,248,.13);transform:translateY(-2px); }
+.btn-lm:hover::before { opacity:1; }
+.btn-lm .lm-icon { width:30px;height:30px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;background:linear-gradient(135deg,rgba(59,126,248,.16),rgba(14,196,212,.12));border:1px solid rgba(59,126,248,.28);color:#60a5fa;transition:transform .3s cubic-bezier(.16,1,.3,1); }
+.btn-lm:hover .lm-icon { transform:translateY(3px); }
+.btn-lm .lm-count { font-size:9.5px;color:var(--t2);background:var(--bg-3);border:1px solid var(--bdr2);border-radius:100px;padding:2px 9px;transition:background .2s,color .2s; }
+.btn-lm:hover .lm-count { background:rgba(59,126,248,.1);border-color:rgba(59,126,248,.3);color:#93c5fd; }
+.lm-sep { width:100%;max-width:280px;height:1px;background:linear-gradient(90deg,transparent,var(--bdr3),transparent); }
+/* Extra thumb styles for new articles */
+.thumb-ma    { background:linear-gradient(135deg,rgba(139,92,246,.13) 0%,rgba(59,126,248,.08) 100%);border:1px solid rgba(139,92,246,.15); }
+.thumb-unico { background:linear-gradient(135deg,rgba(240,180,41,.12) 0%,rgba(59,126,248,.08) 100%);border:1px solid rgba(240,180,41,.15); }
+.thumb-de    { background:linear-gradient(135deg,rgba(59,126,248,.13) 0%,rgba(14,196,212,.09) 100%);border:1px solid rgba(59,126,248,.15); }
+.thumb-uk    { background:linear-gradient(135deg,rgba(14,196,212,.12) 0%,rgba(34,229,139,.08) 100%);border:1px solid rgba(14,196,212,.15); }
+
+/* ═══════════════════════════════════════════════
+   LOAD MORE SYSTEM — Universal v4
+═══════════════════════════════════════════════ */
+.lm-item-hidden { display:none !important; }
+@keyframes lm-fadein { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+.lm-item-visible  { animation:lm-fadein .55s cubic-bezier(.16,1,.3,1) both; }
+.lm-item-search-show { display:flex !important; animation:lm-fadein .3s ease both; }
+.lm-wrap { display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:44px;transition:opacity .4s ease; }
+.lm-wrap.lm-gone { opacity:0;pointer-events:none; }
+.btn-lm { display:inline-flex;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:400;letter-spacing:.13em;text-transform:uppercase;padding:15px 40px;border-radius:14px;cursor:pointer;border:1px solid var(--bdr3);position:relative;overflow:hidden;background:var(--bg-1);color:var(--t1);transition:color .25s,border-color .25s,box-shadow .25s,transform .25s cubic-bezier(.16,1,.3,1),background .25s; }
+.btn-lm::before { content:'';position:absolute;inset:0;border-radius:14px;background:linear-gradient(135deg,rgba(59,126,248,.09) 0%,rgba(14,196,212,.06) 100%);opacity:0;transition:opacity .25s; }
+.btn-lm:hover { color:var(--t0);border-color:rgba(59,126,248,.5);box-shadow:0 0 0 1px rgba(59,126,248,.14),0 10px 36px rgba(59,126,248,.13);transform:translateY(-2px); }
+.btn-lm:hover::before { opacity:1; }
+.btn-lm .lm-icon { width:30px;height:30px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;background:linear-gradient(135deg,rgba(59,126,248,.16),rgba(14,196,212,.12));border:1px solid rgba(59,126,248,.28);color:#60a5fa;transition:transform .3s cubic-bezier(.16,1,.3,1); }
+.btn-lm:hover .lm-icon { transform:translateY(3px); }
+.btn-lm .lm-count { font-size:9.5px;color:var(--t2);background:var(--bg-3);border:1px solid var(--bdr2);border-radius:100px;padding:2px 9px;transition:background .2s,color .2s; }
+.btn-lm:hover .lm-count { background:rgba(59,126,248,.1);border-color:rgba(59,126,248,.3);color:#93c5fd; }
+.lm-sep { width:100%;max-width:280px;height:1px;background:linear-gradient(90deg,transparent,var(--bdr3),transparent); }
+/* Extra thumb styles for new articles */
+.thumb-ma    { background:linear-gradient(135deg,rgba(139,92,246,.13) 0%,rgba(59,126,248,.08) 100%);border:1px solid rgba(139,92,246,.15); }
+.thumb-unico { background:linear-gradient(135deg,rgba(240,180,41,.12) 0%,rgba(59,126,248,.08) 100%);border:1px solid rgba(240,180,41,.15); }
+.thumb-de    { background:linear-gradient(135deg,rgba(59,126,248,.13) 0%,rgba(14,196,212,.09) 100%);border:1px solid rgba(59,126,248,.15); }
+.thumb-uk    { background:linear-gradient(135deg,rgba(14,196,212,.12) 0%,rgba(34,229,139,.08) 100%);border:1px solid rgba(14,196,212,.15); }
 </style>
 </head>
 <body class="relative">
@@ -1004,7 +1052,7 @@ body.modal-open .modal-backdrop { filter: none; }
               </div>
               <div class="meta-r">
                 <span class="font-mono text-xs" style="color:var(--t2);letter-spacing:0.1em;text-transform:uppercase">Languages</span>
-                <span class="text-sm font-medium" style="color:var(--t0)">ES · CAT · EN · AR · FR</span>
+                <span class="text-sm font-medium" style="color:var(--t0)">ES · CAT · EN · AR · FR · DE</span>
               </div>
               <div class="meta-r">
                 <span class="font-mono text-xs" style="color:var(--t2);letter-spacing:0.1em;text-transform:uppercase">Frameworks</span>
@@ -1090,17 +1138,15 @@ body.modal-open .modal-backdrop { filter: none; }
       <div class="sec-label mb-4">Industry Intelligence</div>
       <h2 class="sec-h2">Smart <span class="gradient-text">News Hub</span></h2>
       <p style="font-family:'Inter',sans-serif;font-size:14px;font-weight:300;margin-top:12px;max-width:480px;color:var(--t1);line-height:1.85">
-        Authoritative insights on next-generation fiber, 5G infrastructure, and sustainable telecom deployment.
+        Authoritative insights on next-generation fiber, 5G infrastructure, M&amp;A movements and European digital policy.
       </p>
     </div>
 
-    <!-- Smart Search Bar -->
+    <!-- AI Search Bar -->
     <div data-aos="fade-up" data-aos-delay="80" class="mb-5">
       <div class="search-bar">
-        <div class="ai-pulse" title="AI-powered search">
-          <i class="fa-solid fa-wand-magic-sparkles"></i>
-        </div>
-        <input id="newsSearch" type="text" placeholder="AI-powered search — try: 5G, XGS-PON, Green Fiber, ESG…" autocomplete="off"/>
+        <div class="ai-pulse" title="AI-powered search"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <input id="newsSearch" type="text" placeholder="AI-powered search — try: 5G, M&A, UNICO, Glasfaser, Project Gigabit…" autocomplete="off"/>
         <i class="fa fa-magnifying-glass" style="font-size:13px;color:var(--t2)"></i>
       </div>
     </div>
@@ -1111,34 +1157,24 @@ body.modal-open .modal-backdrop { filter: none; }
       <button class="tag-pill" data-t="5g">5G</button>
       <button class="tag-pill" data-t="fiber">Fiber</button>
       <button class="tag-pill" data-t="xgs-pon">XGS-PON</button>
-      <button class="tag-pill" data-t="backhaul">Backhaul</button>
+      <button class="tag-pill" data-t="m&a">M&amp;A</button>
+      <button class="tag-pill" data-t="policy">Policy</button>
       <button class="tag-pill" data-t="sustainability">Sustainability</button>
-      <button class="tag-pill" data-t="esg">ESG</button>
       <button class="tag-pill" data-t="ftth">FTTH</button>
     </div>
 
-    <!-- Articles Grid -->
+    <!-- Articles Grid — first 3 visible, rest hidden by JS -->
     <div class="grid md:grid-cols-3 gap-5" id="newsGrid">
 
-      <!-- Article 1: XGS-PON -->
-      <article class="card p-6 flex flex-col"
-               data-kw="xgs-pon fiber residential 10gbps ftth pon gpon technical wavelength"
-               data-aos="fade-up" data-aos-delay="0">
+      <!-- Article 1: XGS-PON (visible) -->
+      <article class="card p-6 flex flex-col" data-kw="xgs-pon fiber residential 10gbps ftth pon gpon technical wavelength" data-aos="fade-up" data-aos-delay="0">
         <div class="card-glow"></div>
         <div class="news-thumb thumb-xgs">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="28" cy="28" r="26" stroke="#3b7ef8" stroke-width="1.5" stroke-dasharray="4 2"/>
-            <path d="M14 28 L28 18 L42 28 L28 38 Z" stroke="#22d3ee" stroke-width="1.5" fill="none"/>
-            <circle cx="28" cy="28" r="4" fill="#3b7ef8" opacity="0.8"/>
-          </svg>
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="26" stroke="#3b7ef8" stroke-width="1.5" stroke-dasharray="4 2"/><path d="M14 28 L28 18 L42 28 L28 38 Z" stroke="#22d3ee" stroke-width="1.5" fill="none"/><circle cx="28" cy="28" r="4" fill="#3b7ef8" opacity=".8"/></svg>
         </div>
         <div class="chip c-blue mb-4"><i class="fa fa-microchip"></i> Technical</div>
-        <h3 class="text-base font-bold mb-3 leading-snug" style="color:var(--t0);letter-spacing:-0.02em">
-          XGS-PON Evolution: Beyond 10 Gbps in Residential Networks
-        </h3>
-        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:20px;color:var(--t1)">
-          The transition to XGS-PON marks a pivotal shift in residential fiber architecture. Unlike legacy GPON systems, XGS-PON delivers symmetrical 10 Gbps per wavelength — enabling dense MDU environments, 8K streaming, and enterprise-grade SLAs across rural and urban deployments.
-        </p>
+        <h3 class="text-base font-bold mb-3 leading-snug" style="color:var(--t0);letter-spacing:-.02em">XGS-PON Evolution: Beyond 10 Gbps in Residential Networks</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:20px;color:var(--t1)">The transition to XGS-PON marks a pivotal shift in residential fiber architecture. Unlike legacy GPON systems, XGS-PON delivers symmetrical 10 Gbps per wavelength — enabling dense MDU environments, 8K streaming, and enterprise-grade SLAs across rural and urban deployments.</p>
         <div class="flex gap-2 flex-wrap">
           <span class="chip c-blue" style="font-size:9px;padding:2px 10px">XGS-PON</span>
           <span class="chip c-cyan" style="font-size:9px;padding:2px 10px">Fiber</span>
@@ -1146,26 +1182,15 @@ body.modal-open .modal-backdrop { filter: none; }
         </div>
       </article>
 
-      <!-- Article 2: 5G -->
-      <article class="card p-6 flex flex-col"
-               data-kw="5g fiber backhaul convergence infrastructure spectrum fronthaul mno transport analysis"
-               data-aos="fade-up" data-aos-delay="100">
+      <!-- Article 2: 5G Backhaul (visible) -->
+      <article class="card p-6 flex flex-col" data-kw="5g fiber backhaul convergence infrastructure spectrum fronthaul mno transport analysis" data-aos="fade-up" data-aos-delay="100">
         <div class="card-glow"></div>
         <div class="news-thumb thumb-5g">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 28 Q18 10 28 28 Q38 46 46 28" stroke="#0ec4d4" stroke-width="1.5" fill="none"/>
-            <path d="M16 28 Q22 16 28 28 Q34 40 40 28" stroke="#8b5cf6" stroke-width="1.5" fill="none"/>
-            <circle cx="28" cy="28" r="4" fill="#0ec4d4" opacity="0.9"/>
-            <path d="M28 14 L28 42 M14 28 L42 28" stroke="rgba(14,196,212,0.25)" stroke-width="1"/>
-          </svg>
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><path d="M10 28 Q18 10 28 28 Q38 46 46 28" stroke="#0ec4d4" stroke-width="1.5" fill="none"/><path d="M16 28 Q22 16 28 28 Q34 40 40 28" stroke="#8b5cf6" stroke-width="1.5" fill="none"/><circle cx="28" cy="28" r="4" fill="#0ec4d4" opacity=".9"/><path d="M28 14 L28 42 M14 28 L42 28" stroke="rgba(14,196,212,.25)" stroke-width="1"/></svg>
         </div>
         <div class="chip c-cyan mb-4"><i class="fa fa-chart-line"></i> Analysis</div>
-        <h3 class="text-base font-bold mb-3 leading-snug" style="color:var(--t0);letter-spacing:-0.02em">
-          The 5G–Fiber Convergence: Why Backhaul is the Real Bottleneck
-        </h3>
-        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:20px;color:var(--t1)">
-          The 5G rollout narrative focuses on spectrum auctions — but the true bottleneck is underground. Without massive fiber backhaul investment, mid-band 5G cannot deliver theoretical throughput. We examine fronthaul/backhaul economics across European markets.
-        </p>
+        <h3 class="text-base font-bold mb-3 leading-snug" style="color:var(--t0);letter-spacing:-.02em">The 5G–Fiber Convergence: Why Backhaul is the Real Bottleneck</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:20px;color:var(--t1)">The 5G rollout narrative focuses on spectrum auctions — but the true bottleneck is underground. Without massive fiber backhaul investment, mid-band 5G cannot deliver theoretical throughput. We examine fronthaul/backhaul economics across European markets.</p>
         <div class="flex gap-2 flex-wrap">
           <span class="chip c-cyan" style="font-size:9px;padding:2px 10px">5G</span>
           <span class="chip c-blue" style="font-size:9px;padding:2px 10px">Backhaul</span>
@@ -1173,26 +1198,15 @@ body.modal-open .modal-backdrop { filter: none; }
         </div>
       </article>
 
-      <!-- Article 3: ESG -->
-      <article class="card p-6 flex flex-col"
-               data-kw="sustainability green fiber ftth esg energy efficiency carbon solar environment"
-               data-aos="fade-up" data-aos-delay="200">
+      <!-- Article 3: ESG / Green Fiber (visible) -->
+      <article class="card p-6 flex flex-col" data-kw="sustainability green fiber ftth esg energy efficiency carbon solar environment" data-aos="fade-up" data-aos-delay="200">
         <div class="card-glow"></div>
         <div class="news-thumb thumb-esg">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M28 10 C20 10 12 18 12 26 C12 38 28 46 28 46 C28 46 44 38 44 26 C44 18 36 10 28 10Z" stroke="#22e58b" stroke-width="1.5" fill="rgba(34,229,139,0.08)"/>
-            <path d="M28 46 C28 46 28 30 28 22" stroke="#22e58b" stroke-width="1.5"/>
-            <path d="M28 34 C28 34 22 28 18 28" stroke="#22e58b" stroke-width="1.2" stroke-dasharray="2 1"/>
-            <path d="M28 30 C28 30 34 24 38 24" stroke="#22e58b" stroke-width="1.2" stroke-dasharray="2 1"/>
-          </svg>
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><path d="M28 10 C20 10 12 18 12 26 C12 38 28 46 28 46 C28 46 44 38 44 26 C44 18 36 10 28 10Z" stroke="#22e58b" stroke-width="1.5" fill="rgba(34,229,139,.08)"/><path d="M28 46 C28 46 28 30 28 22" stroke="#22e58b" stroke-width="1.5"/><path d="M28 34 C28 34 22 28 18 28" stroke="#22e58b" stroke-width="1.2" stroke-dasharray="2 1"/><path d="M28 30 C28 30 34 24 38 24" stroke="#22e58b" stroke-width="1.2" stroke-dasharray="2 1"/></svg>
         </div>
         <div class="chip c-green mb-4"><i class="fa fa-leaf"></i> ESG</div>
-        <h3 class="text-base font-bold mb-3 leading-snug" style="color:var(--t0);letter-spacing:-0.02em">
-          Green Fiber: Sustainability &amp; Energy Efficiency in FTTH
-        </h3>
-        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:20px;color:var(--t1)">
-          Passive optical networks have a compelling energy efficiency story. This report benchmarks power consumption across OLT generations, examines micro-trenching carbon footprint, and covers solar-powered optical distribution. With EU ESG disclosures mandatory, sustainability must be embedded from day one.
-        </p>
+        <h3 class="text-base font-bold mb-3 leading-snug" style="color:var(--t0);letter-spacing:-.02em">Green Fiber: Sustainability &amp; Energy Efficiency in FTTH</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:20px;color:var(--t1)">Passive optical networks have a compelling energy efficiency story. This report benchmarks power consumption across OLT generations, examines micro-trenching carbon footprint, and covers solar-powered optical distribution. With EU ESG disclosures mandatory, sustainability must be embedded from day one.</p>
         <div class="flex gap-2 flex-wrap">
           <span class="chip c-green" style="font-size:9px;padding:2px 10px">ESG</span>
           <span class="chip c-green" style="font-size:9px;padding:2px 10px">Green Fiber</span>
@@ -1200,16 +1214,87 @@ body.modal-open .modal-backdrop { filter: none; }
         </div>
       </article>
 
+      <!-- Article 4: Telefónica/Netomnia M&A (hidden — load more) -->
+      <article class="card p-6 flex flex-col" data-kw="telefonica netomnia nexfibre liberty global m&a acquisition merger uk altnet fiber consolidation vmo2 marc murtra transform grow" data-aos="fade-up" data-aos-delay="0">
+        <div class="card-glow"></div>
+        <div class="news-thumb thumb-ma">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><circle cx="20" cy="28" r="12" stroke="#8b5cf6" stroke-width="1.5" fill="rgba(139,92,246,.08)"/><circle cx="36" cy="28" r="12" stroke="#3b7ef8" stroke-width="1.5" fill="rgba(59,126,248,.08)"/><path d="M28 22 L32 28 L28 34" stroke="#c4b5fd" stroke-width="1.4" fill="none" stroke-linecap="round"/><line x1="20" y1="28" x2="32" y2="28" stroke="#c4b5fd" stroke-width="1.2"/></svg>
+        </div>
+        <div class="chip c-violet mb-4"><i class="fa fa-handshake"></i> M&amp;A</div>
+        <h3 class="text-base font-bold mb-3 leading-snug" style="color:var(--t0);letter-spacing:-.02em">Telefónica Acquires Netomnia — Accelerating European Fiber Consolidation</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:20px;color:var(--t1)">Nexfibre — the joint venture between Telefónica (25%), Liberty Global (25%) and InfraVia (50%) — has agreed to acquire UK altnet Netomnia for approximately £2B. The deal adds 3.4M homes-passed, targeting an 8M footprint by 2027 and a combined 20M alongside VMO2. CEO Marc Murtra frames the move as the opening salvo of Telefónica's Transform &amp; Grow 2026–2030 strategic plan, cementing pan-European fiber leadership.</p>
+        <div class="flex gap-2 flex-wrap">
+          <span class="chip c-violet" style="font-size:9px;padding:2px 10px">M&amp;A</span>
+          <span class="chip c-blue" style="font-size:9px;padding:2px 10px">Fiber</span>
+          <span class="chip c-cyan" style="font-size:9px;padding:2px 10px">UK Market</span>
+        </div>
+      </article>
+
+      <!-- Article 5: Programa UNICO España (hidden — load more) -->
+      <article class="card p-6 flex flex-col" data-kw="unico banda ancha espana spain nextgen eu fiber rural conectividad digital 5g subvencion prtr ministerio transformacion digital" data-aos="fade-up" data-aos-delay="80">
+        <div class="card-glow"></div>
+        <div class="news-thumb thumb-unico">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect x="12" y="20" width="32" height="22" rx="3" stroke="#f0b429" stroke-width="1.5" fill="rgba(240,180,41,.07)"/><path d="M20 20 L20 14 Q28 8 36 14 L36 20" stroke="#f0b429" stroke-width="1.5" fill="none"/><circle cx="28" cy="37" r="4" stroke="#f0b429" stroke-width="1.2" fill="rgba(240,180,41,.2)"/><path d="M18 31 Q28 25 38 31" stroke="rgba(240,180,41,.5)" stroke-width="1" fill="none"/></svg>
+        </div>
+        <div class="chip c-amber mb-4"><i class="fa fa-landmark"></i> Policy</div>
+        <h3 class="text-base font-bold mb-3 leading-snug" style="color:var(--t0);letter-spacing:-.02em">Programa UNICO: €1B+ en Fondos NextGen EU Impulsa la Universalización de la Fibra en España</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:20px;color:var(--t1)">El Programa UNICO Banda Ancha ha desplegado más de €1B en subvenciones NextGen EU desde 2018, elevando la cobertura de fibra hasta el 95.2% (frente al 64% de media de la UE). La tercera convocatoria destina €150M a 380,000+ hogares sin cobertura. El eje UNICO 5G aporta €448M adicionales para backhaul rural, con el objetivo del 100% de cobertura para 2025 conforme al Plan de Recuperación PRTR.</p>
+        <div class="flex gap-2 flex-wrap">
+          <span class="chip c-amber" style="font-size:9px;padding:2px 10px">NextGen EU</span>
+          <span class="chip c-blue" style="font-size:9px;padding:2px 10px">Spain</span>
+          <span class="chip c-cyan" style="font-size:9px;padding:2px 10px">Policy</span>
+        </div>
+      </article>
+
+      <!-- Article 6: Glasfaser-Plan Deutschland (hidden — load more) -->
+      <article class="card p-6 flex flex-col" data-kw="glasfaser germany deutschland vollausbau tkg mehrfamilienhaus fiber rollout regulation bmas digital ministry dach open access" data-aos="fade-up" data-aos-delay="160">
+        <div class="card-glow"></div>
+        <div class="news-thumb thumb-de">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect x="14" y="16" width="10" height="24" rx="2" stroke="#3b7ef8" stroke-width="1.4" fill="rgba(59,126,248,.08)"/><rect x="27" y="20" width="10" height="20" rx="2" stroke="#3b7ef8" stroke-width="1.4" fill="rgba(59,126,248,.08)"/><path d="M10 40 L46 40" stroke="rgba(59,126,248,.4)" stroke-width="1.2"/><path d="M40 28 L50 28 M50 22 L50 34" stroke="#0ec4d4" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </div>
+        <div class="chip c-blue mb-4"><i class="fa fa-building"></i> Infrastructure</div>
+        <h3 class="text-base font-bold mb-3 leading-snug" style="color:var(--t0);letter-spacing:-.02em">Germany's Glasfaser-Vollausbau Law: Mandatory In-Building Fiber Rights &amp; New Market Tensions</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:20px;color:var(--t1)">The Federal Digital Ministry's TKG amendment grants operators a statutory right to deploy fiber into multi-family buildings covering 23.5M apartments. In exchange, mandatory open-access wholesale applies where duplicate networks are uneconomical. The reform includes phased copper migration timelines and is expected to face constitutional challenges from property-owner associations.</p>
+        <div class="flex gap-2 flex-wrap">
+          <span class="chip c-blue" style="font-size:9px;padding:2px 10px">Germany</span>
+          <span class="chip c-cyan" style="font-size:9px;padding:2px 10px">Regulation</span>
+          <span class="chip c-blue" style="font-size:9px;padding:2px 10px">FTTH</span>
+        </div>
+      </article>
+
+      <!-- Article 7: Project Gigabit UK (hidden — load more) -->
+      <article class="card p-6 flex flex-col" data-kw="project gigabit uk rural broadband gigabit coverage bduk voucher scheme hard to reach fttp adsl phase-out fixed wireless" data-aos="fade-up" data-aos-delay="0">
+        <div class="card-glow"></div>
+        <div class="news-thumb thumb-uk">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><ellipse cx="28" cy="28" rx="16" ry="20" stroke="#0ec4d4" stroke-width="1.4" fill="rgba(14,196,212,.06)"/><path d="M12 28 L44 28 M14 20 L42 20 M14 36 L42 36" stroke="rgba(14,196,212,.35)" stroke-width="1"/><path d="M28 8 L28 48" stroke="rgba(14,196,212,.4)" stroke-width="1"/><circle cx="28" cy="28" r="3" fill="#22e58b"/><path d="M34 18 L46 14" stroke="#22e58b" stroke-width="1.3" stroke-linecap="round"/><circle cx="47" cy="13" r="2.5" fill="#22e58b" opacity=".8"/></svg>
+        </div>
+        <div class="chip c-teal mb-4"><i class="fa fa-wifi"></i> Infrastructure</div>
+        <h3 class="text-base font-bold mb-3 leading-snug" style="color:var(--t0);letter-spacing:-.02em">Project Gigabit: UK's £5B+ Programme to Connect Hard-to-Reach Communities by 2032</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:20px;color:var(--t1)">BDUK has signed 30+ contracts targeting commercially unviable premises across England, Scotland, Wales and Northern Ireland, with a target of 99% gigabit-capable coverage by 2032 via FTTP. The Gigabit Broadband Voucher Scheme provides up to £4,500 per premises. Legacy ADSL infrastructure faces a mandated phase-out by January 2027, with fixed wireless as an approved bridging technology.</p>
+        <div class="flex gap-2 flex-wrap">
+          <span class="chip c-teal" style="font-size:9px;padding:2px 10px">UK Policy</span>
+          <span class="chip c-green" style="font-size:9px;padding:2px 10px">FTTP</span>
+          <span class="chip c-cyan" style="font-size:9px;padding:2px 10px">Rural</span>
+        </div>
+      </article>
+
+    </div><!-- /#newsGrid -->
+
+    <!-- Load More — News -->
+    <div class="lm-wrap" id="newsLmWrap" data-aos="fade-up">
+      <div class="lm-sep"></div>
+      <button class="btn-lm" id="newsLmBtn" aria-label="Load more articles">
+        <span class="lm-icon"><i class="fa fa-chevron-down"></i></span>
+        Load More Insights
+        <span class="lm-count" id="newsLmCount"></span>
+      </button>
     </div>
 
     <!-- No Results -->
     <div id="no-results" class="hidden text-center py-20">
-      <div style="font-size:40px;margin-bottom:16px;opacity:0.3">🔍</div>
+      <div style="font-size:40px;margin-bottom:16px;opacity:.3">🔍</div>
       <div class="font-mono text-xs tracking-widest" style="color:var(--t2)">— NO ARTICLES MATCH YOUR SEARCH —</div>
-      <button onclick="document.getElementById('newsSearch').value='';filter('');document.querySelectorAll('.tag-pill').forEach((t,i)=>{t.classList.toggle('on',i===0)});"
-              class="btn-g mt-6" style="font-size:10px;padding:8px 18px">
-        <i class="fa fa-rotate-left"></i> Clear Search
-      </button>
+      <button id="clearSearchBtn" class="btn-g mt-6" style="font-size:10px;padding:8px 18px"><i class="fa fa-rotate-left"></i> Clear Search</button>
     </div>
 
   </div>
@@ -1231,88 +1316,139 @@ body.modal-open .modal-backdrop { filter: none; }
       </p>
     </div>
 
-    <!-- Top 3 cards -->
-    <div class="grid md:grid-cols-3 gap-5 mb-5">
+    <!-- Unified courses grid — JS hides items beyond index 2 -->
+    <div class="grid md:grid-cols-3 gap-5" id="coursesGrid">
 
-      <!-- PMP -->
-      <div class="card p-7 flex flex-col hover-lift" data-aos="fade-up" data-aos-delay="0">
+      <!-- Course 1: PMP (visible) -->
+      <div class="card p-7 flex flex-col hover-lift" data-kw="pmp project management professional pmi agile predictive hybrid infrastructure 214 countries" data-aos="fade-up" data-aos-delay="0">
         <div class="card-glow"></div>
         <div class="course-bar" style="background:linear-gradient(90deg,var(--accent),var(--accent2))"></div>
         <div class="chip c-blue mb-5"><i class="fa fa-trophy"></i> Global Standard</div>
-        <div class="text-4xl mb-5"></div>
-        <h3 class="text-lg font-bold mb-1" style="color:var(--t0);letter-spacing:-0.02em">PMP</h3>
-        <div class="font-mono text-xs mb-4" style="color:var(--t2);letter-spacing:0.1em;text-transform:uppercase">Project Management Professional · PMI</div>
-        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:24px;color:var(--t1)">
-          The global benchmark for PM excellence. Validates competency across predictive, agile, and hybrid delivery — essential for multi-million-euro infrastructure. Recognized in 214 countries.
-        </p>
-        <a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener"
-           class="btn-g text-xs justify-center">Learn More <i class="fa fa-arrow-right" style="margin-left:6px"></i></a>
+        <div class="text-4xl mb-5">🏅</div>
+        <h3 class="text-lg font-bold mb-1" style="color:var(--t0);letter-spacing:-.02em">PMP</h3>
+        <div class="font-mono text-xs mb-4" style="color:var(--t2);letter-spacing:.1em;text-transform:uppercase">Project Management Professional · PMI</div>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:24px;color:var(--t1)">The global benchmark for PM excellence. Validates competency across predictive, agile, and hybrid delivery — essential for multi-million-euro infrastructure. Recognized in 214 countries.</p>
+        <a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener" class="btn-g text-xs justify-center">Learn More <i class="fa fa-arrow-right" style="margin-left:6px"></i></a>
       </div>
 
-      <!-- PRINCE2 -->
-      <div class="card p-7 flex flex-col hover-lift" data-aos="fade-up" data-aos-delay="100">
+      <!-- Course 2: PRINCE2 (visible) -->
+      <div class="card p-7 flex flex-col hover-lift" data-kw="prince2 practitioner pm methodology axelos stage-gate nextgen eu business case process" data-aos="fade-up" data-aos-delay="100">
         <div class="card-glow"></div>
         <div class="course-bar" style="background:linear-gradient(90deg,var(--gold),#fde68a)"></div>
         <div class="chip c-amber mb-5"><i class="fa fa-layer-group"></i> Structured</div>
-        <div class="text-4xl mb-5"></div>
-        <h3 class="text-lg font-bold mb-1" style="color:var(--t0);letter-spacing:-0.02em">PRINCE2 Practitioner</h3>
-        <div class="font-mono text-xs mb-4" style="color:var(--t2);letter-spacing:0.1em;text-transform:uppercase">PM Methodology · Axelos</div>
-        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:24px;color:var(--t1)">
-          Process-based methodology for complex, multi-phase projects. Maps directly onto NextGen EU programme requirements — rigorous stage-gate controls, business case management, and accountability.
-        </p>
-        <a href="https://www.axelos.com/" target="_blank" rel="noopener"
-           class="btn-g text-xs justify-center">Learn More <i class="fa fa-arrow-right" style="margin-left:6px"></i></a>
+        <div class="text-4xl mb-5">📐</div>
+        <h3 class="text-lg font-bold mb-1" style="color:var(--t0);letter-spacing:-.02em">PRINCE2 Practitioner</h3>
+        <div class="font-mono text-xs mb-4" style="color:var(--t2);letter-spacing:.1em;text-transform:uppercase">PM Methodology · Axelos</div>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:24px;color:var(--t1)">Process-based methodology for complex, multi-phase projects. Maps directly onto NextGen EU programme requirements — rigorous stage-gate controls, business case management, and accountability.</p>
+        <a href="https://www.axelos.com/" target="_blank" rel="noopener" class="btn-g text-xs justify-center">Learn More <i class="fa fa-arrow-right" style="margin-left:6px"></i></a>
       </div>
 
-      <!-- FTTH Design -->
-      <div class="card p-7 flex flex-col hover-lift" data-aos="fade-up" data-aos-delay="200">
+      <!-- Course 3: FTTH Network Design (visible) -->
+      <div class="card p-7 flex flex-col hover-lift" data-kw="ftth network design pon splitter otdr itu-t g.984 g.987 g.989 fiber engineering passive optical" data-aos="fade-up" data-aos-delay="200">
         <div class="card-glow"></div>
         <div class="course-bar" style="background:linear-gradient(90deg,var(--accent2),#a5f3fc)"></div>
         <div class="chip c-cyan mb-5"><i class="fa fa-network-wired"></i> Engineering</div>
-        <div class="text-4xl mb-5"></div>
-        <h3 class="text-lg font-bold mb-1" style="color:var(--t0);letter-spacing:-0.02em">FTTH Network Design</h3>
-        <div class="font-mono text-xs mb-4" style="color:var(--t2);letter-spacing:0.1em;text-transform:uppercase">Specialized Engineering · ITU-T</div>
-        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:24px;color:var(--t1)">
-          Passive optical network architecture, splitter topology, OTDR testing &amp; ITU-T G.984/G.987/G.989 compliance. For engineers overseeing large-scale fiber deployments.
-        </p>
+        <div class="text-4xl mb-5">🔗</div>
+        <h3 class="text-lg font-bold mb-1" style="color:var(--t0);letter-spacing:-.02em">FTTH Network Design</h3>
+        <div class="font-mono text-xs mb-4" style="color:var(--t2);letter-spacing:.1em;text-transform:uppercase">Specialized Engineering · ITU-T</div>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:24px;color:var(--t1)">Passive optical network architecture, splitter topology, OTDR testing &amp; ITU-T G.984/G.987/G.989 compliance. For engineers overseeing large-scale fiber deployments.</p>
         <a href="#contact" class="btn-g text-xs justify-center">Request Info <i class="fa fa-arrow-right" style="margin-left:6px"></i></a>
       </div>
 
-    </div>
-
-    <!-- Bottom 2 cards -->
-    <div class="grid md:grid-cols-2 gap-5">
-
-      <!-- Agile -->
-      <div class="card p-7 flex flex-col hover-lift" data-aos="fade-up" data-aos-delay="80">
+      <!-- Course 4: Agile for Infrastructure (hidden — load more) -->
+      <div class="card p-7 flex flex-col hover-lift" data-kw="agile infrastructure scrum sprint rollout planning risk management time-to-market deployment" data-aos="fade-up" data-aos-delay="0">
         <div class="card-glow"></div>
         <div class="course-bar" style="background:linear-gradient(90deg,var(--accent3),#a7f3d0)"></div>
         <div class="chip c-green mb-5"><i class="fa fa-rotate"></i> Agile</div>
-        <div class="text-4xl mb-5"></div>
-        <h3 class="text-lg font-bold mb-1" style="color:var(--t0);letter-spacing:-0.02em">Agile for Infrastructure Projects</h3>
-        <div class="font-mono text-xs mb-4" style="color:var(--t2);letter-spacing:0.1em;text-transform:uppercase">Deployment Modernisation · Scrum Alliance</div>
-        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:24px;color:var(--t1)">
-          Applies Agile &amp; Scrum to physical infrastructure — iterative rollout planning, sprint-based crew scheduling, and adaptive risk management. Reduces time-to-market while maintaining regulatory compliance.
-        </p>
-        <a href="https://www.scrumalliance.org/" target="_blank" rel="noopener"
-           class="btn-g text-xs justify-center">Learn More <i class="fa fa-arrow-right" style="margin-left:6px"></i></a>
+        <div class="text-4xl mb-5">⚡</div>
+        <h3 class="text-lg font-bold mb-1" style="color:var(--t0);letter-spacing:-.02em">Agile for Infrastructure Projects</h3>
+        <div class="font-mono text-xs mb-4" style="color:var(--t2);letter-spacing:.1em;text-transform:uppercase">Deployment Modernisation · Scrum Alliance</div>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:24px;color:var(--t1)">Applies Agile &amp; Scrum to physical infrastructure — iterative rollout planning, sprint-based crew scheduling, and adaptive risk management. Reduces time-to-market while maintaining regulatory compliance.</p>
+        <a href="https://www.scrumalliance.org/" target="_blank" rel="noopener" class="btn-g text-xs justify-center">Learn More <i class="fa fa-arrow-right" style="margin-left:6px"></i></a>
       </div>
 
-      <!-- Google PM -->
-      <div class="card p-7 flex flex-col hover-lift" data-aos="fade-up" data-aos-delay="160">
+      <!-- Course 5: Google PM Certificate (hidden — load more) -->
+      <div class="card p-7 flex flex-col hover-lift" data-kw="google project management certificate coursera foundational pm agile stakeholder communication" data-aos="fade-up" data-aos-delay="80">
         <div class="card-glow"></div>
         <div class="course-bar" style="background:linear-gradient(90deg,#a78bfa,#c4b5fd)"></div>
         <div class="chip c-violet mb-5"><i class="fab fa-google"></i> Google</div>
-        <div class="text-4xl mb-5"></div>
-        <h3 class="text-lg font-bold mb-1" style="color:var(--t0);letter-spacing:-0.02em">Google Project Management Certificate</h3>
-        <div class="font-mono text-xs mb-4" style="color:var(--t2);letter-spacing:0.1em;text-transform:uppercase">Foundational PM · Google / Coursera</div>
-        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:24px;color:var(--t1)">
-          Comprehensive foundation in initiation, planning, execution, stakeholder communication &amp; data-driven decision-making. Ideal entry point for professionals transitioning into PM roles in telecom.
-        </p>
-        <a href="https://grow.google/certificates/project-management/" target="_blank" rel="noopener"
-           class="btn-g text-xs justify-center">Learn More <i class="fa fa-arrow-right" style="margin-left:6px"></i></a>
+        <div class="text-4xl mb-5">🎓</div>
+        <h3 class="text-lg font-bold mb-1" style="color:var(--t0);letter-spacing:-.02em">Google Project Management Certificate</h3>
+        <div class="font-mono text-xs mb-4" style="color:var(--t2);letter-spacing:.1em;text-transform:uppercase">Foundational PM · Google / Coursera</div>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:24px;color:var(--t1)">Comprehensive foundation in initiation, planning, execution, stakeholder communication &amp; data-driven decision-making. Ideal entry point for professionals transitioning into PM roles in telecom.</p>
+        <a href="https://grow.google/certificates/project-management/" target="_blank" rel="noopener" class="btn-g text-xs justify-center">Learn More <i class="fa fa-arrow-right" style="margin-left:6px"></i></a>
       </div>
 
+      <!-- Course 6: Revit 2020 / BIM (hidden — load more) -->
+      <div class="card p-7 flex flex-col hover-lift" data-kw="revit bim building information modelling autodesk 2020 network design telecom infrastructure 3d civil engineering" data-aos="fade-up" data-aos-delay="160">
+        <div class="card-glow"></div>
+        <div class="course-bar" style="background:linear-gradient(90deg,#f87171,#fca5a5)"></div>
+        <div class="chip c-rose mb-5"><i class="fa fa-cube"></i> BIM Design</div>
+        <div class="text-4xl mb-5">🏗️</div>
+        <h3 class="text-lg font-bold mb-1" style="color:var(--t0);letter-spacing:-.02em">Revit 2020 — BIM for Network Infrastructure</h3>
+        <div class="font-mono text-xs mb-4" style="color:var(--t2);letter-spacing:.1em;text-transform:uppercase">Building Information Modelling · Autodesk</div>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:24px;color:var(--t1)">Applies BIM methodology to telecommunications infrastructure — parametric modelling of duct routes, equipment rooms, and fiber pathways. Bridges civil engineering workflows with network planning for large-scale FTTH rollouts.</p>
+        <a href="https://www.autodesk.com/products/revit/overview" target="_blank" rel="noopener" class="btn-g text-xs justify-center">Learn More <i class="fa fa-arrow-right" style="margin-left:6px"></i></a>
+      </div>
+
+      <!-- Course 7: PMI-PMOCP (hidden — load more) -->
+      <div class="card p-7 flex flex-col hover-lift" data-kw="pmi pmocp pmo certified professional programme office governance portfolio strategic leadership" data-aos="fade-up" data-aos-delay="0">
+        <div class="card-glow"></div>
+        <div class="course-bar" style="background:linear-gradient(90deg,var(--accent),#6ee7b7)"></div>
+        <div class="chip c-blue mb-5"><i class="fa fa-sitemap"></i> PMO Leadership</div>
+        <div class="text-4xl mb-5">🏢</div>
+        <h3 class="text-lg font-bold mb-1" style="color:var(--t0);letter-spacing:-.02em">PMI-PMOCP</h3>
+        <div class="font-mono text-xs mb-4" style="color:var(--t2);letter-spacing:.1em;text-transform:uppercase">PMO Certified Professional · PMI</div>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:24px;color:var(--t1)">The only PMI credential dedicated to PMO leadership. Covers portfolio governance, strategic alignment, performance measurement, and executive-level reporting — essential for directing multi-programme offices in telecoms and NextGen EU contexts.</p>
+        <a href="https://www.pmi.org/certifications/pmo-certified-professional-pmocp" target="_blank" rel="noopener" class="btn-g text-xs justify-center">Learn More <i class="fa fa-arrow-right" style="margin-left:6px"></i></a>
+      </div>
+
+      <!-- Course 8: Oxford Executive Leadership (hidden — load more) -->
+      <div class="card p-7 flex flex-col hover-lift" data-kw="oxford executive leadership said business school strategy stakeholder senior management c-suite transformation" data-aos="fade-up" data-aos-delay="80">
+        <div class="card-glow"></div>
+        <div class="course-bar" style="background:linear-gradient(90deg,#fbbf24,#f0b429)"></div>
+        <div class="chip c-amber mb-5"><i class="fa fa-crown"></i> Executive</div>
+        <div class="text-4xl mb-5">🎯</div>
+        <h3 class="text-lg font-bold mb-1" style="color:var(--t0);letter-spacing:-.02em">Executive Leadership Programme</h3>
+        <div class="font-mono text-xs mb-4" style="color:var(--t2);letter-spacing:.1em;text-transform:uppercase">Leadership &amp; Strategy · Oxford Saïd</div>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:24px;color:var(--t1)">Oxford Saïd Business School's Executive Leadership Programme develops senior leaders in strategic decision-making, stakeholder influence and organisational transformation. Relevant for infrastructure professionals operating at the intersection of public administration and private investment.</p>
+        <a href="https://www.sbs.ox.ac.uk/programmes/executive-education" target="_blank" rel="noopener" class="btn-g text-xs justify-center">Learn More <i class="fa fa-arrow-right" style="margin-left:6px"></i></a>
+      </div>
+
+      <!-- Course 9: QGIS for Telecoms (hidden — load more) -->
+      <div class="card p-7 flex flex-col hover-lift" data-kw="qgis gis geospatial telecoms network design mapping spatial analysis fiber route planning open source" data-aos="fade-up" data-aos-delay="160">
+        <div class="card-glow"></div>
+        <div class="course-bar" style="background:linear-gradient(90deg,var(--accent2),var(--accent3))"></div>
+        <div class="chip c-teal mb-5"><i class="fa fa-map-location-dot"></i> Geospatial</div>
+        <div class="text-4xl mb-5">🗺️</div>
+        <h3 class="text-lg font-bold mb-1" style="color:var(--t0);letter-spacing:-.02em">QGIS for Telecoms Network Design</h3>
+        <div class="font-mono text-xs mb-4" style="color:var(--t2);letter-spacing:.1em;text-transform:uppercase">Geospatial Design · Open Source GIS</div>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:24px;color:var(--t1)">Applies QGIS for fiber route planning, coverage analysis, and permit management. Covers spatial data layers, terrain analysis, and export workflows compatible with AutoCAD and GIS platforms used by European operators and public administrations.</p>
+        <a href="https://www.qgis.org/" target="_blank" rel="noopener" class="btn-g text-xs justify-center">Learn More <i class="fa fa-arrow-right" style="margin-left:6px"></i></a>
+      </div>
+
+      <!-- Course 10: Data Centre Professional (hidden — load more) -->
+      <div class="card p-7 flex flex-col hover-lift" data-kw="data centre professional dcpro infrastructure server cooling power tier uptime design management epi" data-aos="fade-up" data-aos-delay="0">
+        <div class="card-glow"></div>
+        <div class="course-bar" style="background:linear-gradient(90deg,#8b5cf6,#a78bfa)"></div>
+        <div class="chip c-violet mb-5"><i class="fa fa-server"></i> Data Centre</div>
+        <div class="text-4xl mb-5">🖥️</div>
+        <h3 class="text-lg font-bold mb-1" style="color:var(--t0);letter-spacing:-.02em">Data Centre Professional (DCPro)</h3>
+        <div class="font-mono text-xs mb-4" style="color:var(--t2);letter-spacing:.1em;text-transform:uppercase">Infrastructure Design · EPI</div>
+        <p style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;line-height:1.78;flex:1;margin-bottom:24px;color:var(--t1)">EPI's Data Centre Professional certification covers physical infrastructure design, power and cooling systems, Tier classification, and operational management standards. Critical for professionals overseeing edge nodes, PoPs, and colocation facilities in fiber network ecosystems.</p>
+        <a href="https://www.epi.edu/en/certifications/" target="_blank" rel="noopener" class="btn-g text-xs justify-center">Learn More <i class="fa fa-arrow-right" style="margin-left:6px"></i></a>
+      </div>
+
+    </div><!-- /#coursesGrid -->
+
+    <!-- Load More — Courses -->
+    <div class="lm-wrap" id="coursesLmWrap" data-aos="fade-up">
+      <div class="lm-sep"></div>
+      <button class="btn-lm" id="coursesLmBtn" aria-label="View all certifications">
+        <span class="lm-icon"><i class="fa fa-graduation-cap"></i></span>
+        View All Certifications
+        <span class="lm-count" id="coursesLmCount"></span>
+      </button>
     </div>
 
   </div>
@@ -1515,8 +1651,8 @@ body.modal-open .modal-backdrop { filter: none; }
                style="color:var(--t2);letter-spacing:0.16em;text-transform:uppercase;border-bottom:1px solid var(--bdr);background:var(--bg-2)">
             <i class="fa fa-envelope" style="color:var(--accent)"></i> Digital
           </div>
-          <a href="mailto:info@atyglobal.com" class="contact-info-row">
-            <i class="fa fa-envelope text-xs" style="color:var(--t2)"></i> info@atyglobal.com
+          <a href="/cdn-cgi/l/email-protection#c1a8afa7ae81a0b5b8a6adaea3a0adefa2aeac" class="contact-info-row">
+            <i class="fa fa-envelope text-xs" style="color:var(--t2)"></i> <span class="__cf_email__" data-cfemail="3b52555d547b5a4f425c5754595a5715585456">[email&#160;protected]</span>
           </a>
           <a href="https://www.linkedin.com/in/abd-el-barie-t-3b85ab74" target="_blank" rel="noopener" class="contact-info-row">
             <i class="fab fa-linkedin text-xs" style="color:var(--t2)"></i> LinkedIn Profile
@@ -1595,7 +1731,7 @@ body.modal-open .modal-backdrop { filter: none; }
           <li><a href="tel:+34613364297"   class="footer-link"><i class="fa fa-phone"></i> 🇪🇸 +34 613 364 297</a></li>
           <li><a href="tel:+31615239304"   class="footer-link"><i class="fa fa-phone"></i> 🇳🇱 +31 6 15 23 93 04</a></li>
           <li><a href="tel:+33762418271"   class="footer-link"><i class="fa fa-phone"></i> 🇫🇷 +33 7 62 41 82 71</a></li>
-          <li><a href="mailto:info@atyglobal.com" class="footer-link"><i class="fa fa-envelope"></i> info@atyglobal.com</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#2f464149406f4e5b564843404d4e43014c4042" class="footer-link"><i class="fa fa-envelope"></i> <span class="__cf_email__" data-cfemail="5d34333b321d3c29243a31323f3c31733e3230">[email&#160;protected]</span></a></li>
         </ul>
       </div>
 
@@ -1666,7 +1802,7 @@ body.modal-open .modal-backdrop { filter: none; }
         <div class="infobox-label">Contact Information</div>
         <p><strong>Representative:</strong> Abdelbarie Taliouan Yarrou<br>
         <strong>Operating Region:</strong> European Union (Germany, Spain, Netherlands, France)<br>
-        <strong>Email:</strong> info@atyglobal.com<br>
+        <strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="84edeae2ebc4e5f0fde3e8ebe6e5e8aae7ebe9">[email&#160;protected]</a><br>
         <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/abd-el-barie-t-3b85ab74" target="_blank">linkedin.com/in/abd-el-barie-t</a></p>
       </div>
       <h3><i class="fa fa-globe"></i> Scope of Services</h3>
@@ -1731,7 +1867,7 @@ body.modal-open .modal-backdrop { filter: none; }
         <li>Right to data portability</li>
         <li>Right to lodge a complaint with your national data protection authority</li>
       </ul>
-      <p>To exercise any of these rights, contact: <a href="mailto:info@atyglobal.com">info@atyglobal.com</a></p>
+      <p>To exercise any of these rights, contact: <a href="/cdn-cgi/l/email-protection#83eaede5ecc3e2f7fae4efece1e2efade0ecee"><span class="__cf_email__" data-cfemail="234a4d454c6342575a444f4c41424f0d404c4e">[email&#160;protected]</span></a></p>
     </div>
     <div class="modal-foot">
       <span class="modal-foot-note"><i class="fa fa-calendar-days" style="margin-right:6px"></i>Last updated: January 2026</span>
@@ -1797,270 +1933,236 @@ body.modal-open .modal-backdrop { filter: none; }
 ══════════════════════════ -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-/* ═══════════════════════════════════
-   ATY Global — JS Engine v3
-═══════════════════════════════════ */
+/* =============================================================
+   ATY Global — JS Engine v4
+   Universal Load More + AI Search (all items including hidden)
+============================================================= */
 
-// ─── AOS Init ───
-AOS.init({
-  duration: 780,
-  easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-  once: true,
-  offset: 50,
-  delay: 0,
-});
+AOS.init({ duration:780, easing:'cubic-bezier(0.16,1,0.3,1)', once:true, offset:50 });
 
-// ─── Scroll Progress Bar ───
+// ─── Scroll Progress ───
 const topbar = document.getElementById('topbar');
-const onScroll = () => {
-  const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-  topbar.style.width = pct + '%';
-};
-window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('scroll',()=>{
+  const pct=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;
+  topbar.style.width=pct+'%';
+},{passive:true});
 
-// ─── Navbar Shrink on Scroll ───
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-}, { passive: true });
+// ─── Navbar ───
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60),{passive:true});
 
-// ─── Theme System ───
-const html       = document.documentElement;
-const themeBtn   = document.getElementById('themeBtn');
-const themeIco   = document.getElementById('themeIco');
-
-const setTheme = (isLight) => {
-  html.classList.toggle('dark',  !isLight);
-  html.classList.toggle('light',  isLight);
-  themeIco.className = isLight ? 'fa fa-sun text-sm' : 'fa fa-moon text-sm';
-  localStorage.setItem('aty', isLight ? 'light' : 'dark');
-};
-
-// Init from storage
-setTheme(localStorage.getItem('aty') === 'light');
-themeBtn.addEventListener('click', () => setTheme(!html.classList.contains('light')));
+// ─── Theme ───
+const html=document.documentElement;
+const themeBtn=document.getElementById('themeBtn');
+const themeIco=document.getElementById('themeIco');
+const setTheme=l=>{html.classList.toggle('dark',!l);html.classList.toggle('light',l);themeIco.className=l?'fa fa-sun text-sm':'fa fa-moon text-sm';localStorage.setItem('aty',l?'light':'dark');};
+setTheme(localStorage.getItem('aty')==='light');
+themeBtn.addEventListener('click',()=>setTheme(!html.classList.contains('light')));
 
 // ─── Nav Spy ───
-const navLinks = document.querySelectorAll('#navLinks .nav-link');
-const sections = document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('#navLinks .nav-link');
+const sections=document.querySelectorAll('section[id]');
+const spy=()=>{let c='';sections.forEach(s=>{if(window.scrollY>=s.offsetTop-100)c=s.id;});navLinks.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+c));};
+window.addEventListener('scroll',spy,{passive:true});spy();
 
-const spy = () => {
-  let current = '';
-  sections.forEach(sec => {
-    if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
-  });
-  navLinks.forEach(link => {
-    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-  });
-};
-window.addEventListener('scroll', spy, { passive: true });
-spy();
-
-// ─── Smooth Scroll with Offset ───
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', e => {
-    const target = document.querySelector(anchor.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      window.scrollTo({ top: target.offsetTop - 72, behavior: 'smooth' });
-    }
-  });
+// ─── Smooth Scroll ───
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-72,behavior:'smooth'});}});
 });
 
 // ─── Mobile Nav ───
-const mobNav   = document.getElementById('mob-nav');
-const mobTog   = document.getElementById('mob-tog');
-const mobClose = document.getElementById('mob-close');
-mobTog  .addEventListener('click', () => mobNav.classList.add('open'));
-mobClose.addEventListener('click', () => mobNav.classList.remove('open'));
-function closeMob() { mobNav.classList.remove('open'); }
+const mobNav=document.getElementById('mob-nav');
+document.getElementById('mob-tog')?.addEventListener('click',()=>mobNav.classList.add('open'));
+document.getElementById('mob-close')?.addEventListener('click',()=>mobNav.classList.remove('open'));
+function closeMob(){mobNav?.classList.remove('open');}
 
-// ─── Smart News Search & Filter ───
-const searchInput = document.getElementById('newsSearch');
-const newsCards   = document.querySelectorAll('#newsGrid article');
-const noResults   = document.getElementById('no-results');
-const tagPills    = document.querySelectorAll('#tagStrip .tag-pill');
+/* =============================================================
+   UNIVERSAL LOAD MORE ENGINE
+   Hides grid children beyond `initialShow` on page load.
+   Reveals them with staggered fade-in on button click.
+   Exposes grid._lm.isRevealed() for the search engine.
+============================================================= */
+function initLoadMore({gridId,wrapId,btnId,countId,initialShow}){
+  const grid=document.getElementById(gridId);
+  const wrap=document.getElementById(wrapId);
+  const btn=document.getElementById(btnId);
+  const badge=document.getElementById(countId);
+  if(!grid||!wrap||!btn)return;
 
-function filter(query) {
-  query = query.toLowerCase().trim();
-  let visible = 0;
+  const all=Array.from(grid.children);
+  const extras=all.slice(initialShow);
 
-  newsCards.forEach(card => {
-    const keywords = (card.dataset.kw || '') + ' ' + card.innerText.toLowerCase();
-    const matches  = !query || keywords.includes(query);
-
-    // Animate in/out
-    if (matches) {
-      card.style.display = '';
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(12px)';
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        });
-      });
-      visible++;
-    } else {
-      card.style.transition = 'opacity 0.2s ease';
-      card.style.opacity = '0';
-      setTimeout(() => { if (!matches) card.style.display = 'none'; }, 200);
-    }
+  extras.forEach(el=>{
+    el.dataset.lmExtra='1';
+    el.classList.add('lm-item-hidden');
   });
 
-  noResults.classList.toggle('hidden', visible > 0);
+  if(badge)badge.textContent=extras.length>0?`+${extras.length}`:'';
+  if(extras.length===0){wrap.style.display='none';return;}
+
+  let revealed=false;
+
+  btn.addEventListener('click',()=>{
+    if(revealed)return;
+    revealed=true;
+    extras.forEach((el,i)=>{
+      el.classList.remove('lm-item-hidden','lm-item-search-show');
+      setTimeout(()=>{
+        el.classList.add('lm-item-visible');
+        setTimeout(()=>el.classList.remove('lm-item-visible'),600);
+      },i*70);
+    });
+    wrap.classList.add('lm-gone');
+    setTimeout(()=>wrap.style.display='none',450);
+    if(window.AOS)AOS.refresh();
+  });
+
+  grid._lm={extras,isRevealed:()=>revealed};
 }
 
-// Input event
-searchInput.addEventListener('input', e => {
-  tagPills.forEach(t => t.classList.remove('on'));
-  // Highlight "All" if empty
-  if (!e.target.value.trim()) tagPills[0].classList.add('on');
-  filter(e.target.value);
-});
+/* =============================================================
+   AI NEWS SEARCH — searches ALL articles (visible + hidden)
+   Hidden items matching the query are force-shown temporarily.
+============================================================= */
+const searchInput=document.getElementById('newsSearch');
+const newsGrid=document.getElementById('newsGrid');
+const noResults=document.getElementById('no-results');
+const tagPills=document.querySelectorAll('#tagStrip .tag-pill');
+const clearBtn=document.getElementById('clearSearchBtn');
+const newsLmWrap=document.getElementById('newsLmWrap');
+const allNewsCards=newsGrid?Array.from(newsGrid.querySelectorAll('article')):[];
 
-// Tag pill clicks
-tagPills.forEach(pill => {
-  pill.addEventListener('click', () => {
-    tagPills.forEach(t => t.classList.remove('on'));
-    pill.classList.add('on');
-    searchInput.value = pill.dataset.t;
-    filter(pill.dataset.t);
-  });
-});
+function filterNews(rawQ){
+  const q=(rawQ||'').toLowerCase().trim();
+  const searching=q.length>0;
+  const lm=newsGrid?._lm;
+  let visible=0;
 
-// ─── Parallax Orbs on Mouse Move ───
-let rafId = null;
-document.addEventListener('mousemove', e => {
-  if (rafId) cancelAnimationFrame(rafId);
-  rafId = requestAnimationFrame(() => {
-    const x = (e.clientX / window.innerWidth  - 0.5) * 22;
-    const y = (e.clientY / window.innerHeight - 0.5) * 22;
-    const o1 = document.querySelector('.orb-1');
-    const o2 = document.querySelector('.orb-2');
-    const o3 = document.querySelector('.orb-3');
-    if (o1) o1.style.transform = `translate(${x * 0.5}px, ${y * 0.5}px)`;
-    if (o2) o2.style.transform = `translate(${-x * 0.35}px, ${-y * 0.35}px)`;
-    if (o3) o3.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+  allNewsCards.forEach(card=>{
+    const isExtra=card.dataset.lmExtra==='1';
+    const isLoaded=lm?.isRevealed();
+    const txt=(card.dataset.kw||'')+' '+card.innerText.toLowerCase();
+    const match=!searching||txt.includes(q);
 
-    // Cursor glow
-    const glow = document.getElementById('cursorGlow');
-    if (glow) {
-      glow.style.left = e.clientX + 'px';
-      glow.style.top  = e.clientY + 'px';
+    if(match){
+      visible++;
+      if(isExtra&&!isLoaded){
+        card.classList.remove('lm-item-hidden');
+        card.classList.add('lm-item-search-show');
+      } else {
+        card.classList.remove('lm-item-hidden','lm-item-search-show');
+        card.style.opacity='';card.style.transform='';
+      }
+    } else {
+      if(isExtra&&!isLoaded){
+        card.classList.add('lm-item-hidden');
+        card.classList.remove('lm-item-search-show');
+      } else {
+        card.classList.remove('lm-item-search-show');
+        card.style.transition='opacity .22s ease,transform .22s ease';
+        card.style.opacity='0';card.style.transform='translateY(8px)';
+      }
     }
   });
+
+  if(newsLmWrap&&newsLmWrap.style.display!=='none'){
+    newsLmWrap.style.visibility=searching?'hidden':'visible';
+  }
+  noResults?.classList.toggle('hidden',visible>0);
+}
+
+function clearSearch(){
+  if(searchInput)searchInput.value='';
+  tagPills.forEach((t,i)=>t.classList.toggle('on',i===0));
+  filterNews('');
+}
+
+searchInput?.addEventListener('input',e=>{
+  tagPills.forEach(t=>t.classList.remove('on'));
+  if(!e.target.value.trim())tagPills[0]?.classList.add('on');
+  filterNews(e.target.value);
+});
+tagPills.forEach(pill=>{
+  pill.addEventListener('click',()=>{
+    tagPills.forEach(t=>t.classList.remove('on'));
+    pill.classList.add('on');
+    if(searchInput)searchInput.value=pill.dataset.t;
+    filterNews(pill.dataset.t);
+  });
+});
+clearBtn?.addEventListener('click',clearSearch);
+
+/* ─── Init both Load More instances ─── */
+initLoadMore({gridId:'newsGrid',   wrapId:'newsLmWrap',   btnId:'newsLmBtn',   countId:'newsLmCount',   initialShow:3});
+initLoadMore({gridId:'coursesGrid',wrapId:'coursesLmWrap',btnId:'coursesLmBtn',countId:'coursesLmCount',initialShow:3});
+
+// ─── Cursor + Orb parallax ───
+let rafId=null;
+document.addEventListener('mousemove',e=>{
+  if(rafId)cancelAnimationFrame(rafId);
+  rafId=requestAnimationFrame(()=>{
+    const x=(e.clientX/window.innerWidth-.5)*22;
+    const y=(e.clientY/window.innerHeight-.5)*22;
+    const o1=document.querySelector('.orb-1');
+    const o2=document.querySelector('.orb-2');
+    const o3=document.querySelector('.orb-3');
+    if(o1)o1.style.transform=`translate(${x*.5}px,${y*.5}px)`;
+    if(o2)o2.style.transform=`translate(${-x*.35}px,${-y*.35}px)`;
+    if(o3)o3.style.transform=`translate(${x*.2}px,${y*.2}px)`;
+    const glow=document.getElementById('cursorGlow');
+    if(glow){glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';}
+  });
 });
 
-// ─── Counter Animation ───
-const counters = document.querySelectorAll('.counter');
-const animateCounter = (el) => {
-  const target = parseInt(el.dataset.target, 10);
-  const duration = 1600;
-  const start = performance.now();
-
-  const tick = (now) => {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    // Ease out
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.round(eased * target);
-    if (progress < 1) requestAnimationFrame(tick);
-  };
+// ─── Counter animation ───
+const counters=document.querySelectorAll('.counter');
+const animateCounter=el=>{
+  const target=parseInt(el.dataset.target,10);
+  const start=performance.now();
+  const tick=now=>{const e=1-Math.pow(1-Math.min((now-start)/1600,1),3);el.textContent=Math.round(e*target);if(e<1)requestAnimationFrame(tick);};
   requestAnimationFrame(tick);
 };
+const heroSection=document.getElementById('home');
+if(heroSection)new IntersectionObserver((ents,obs)=>{ents.forEach(e=>{if(e.isIntersecting){counters.forEach(animateCounter);obs.disconnect();}});},{threshold:.2}).observe(heroSection);
 
-// Trigger counters when hero is visible
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      counters.forEach(c => animateCounter(c));
-      counterObserver.disconnect();
-    }
-  });
-}, { threshold: 0.2 });
-
-const heroSection = document.getElementById('home');
-if (heroSection) counterObserver.observe(heroSection);
-
-// ─── Legal Modal System ───
-let activeModal = null;
-
-function openModal(id) {
-  if (activeModal) closeModal(activeModal, false);
-
-  const el = document.getElementById('modal-' + id);
-  if (!el) return;
-
-  // Blur page content
+// ─── Modal system ───
+let activeModal=null;
+function openModal(id){
+  if(activeModal)closeModal(activeModal,false);
+  const el=document.getElementById('modal-'+id);
+  if(!el)return;
   document.body.classList.add('modal-open');
+  const body=el.querySelector('.modal-body');
+  if(body)body.scrollTop=0;
+  el.classList.add('open');activeModal=id;
+  document.documentElement.style.overflow='hidden';
+  requestAnimationFrame(()=>el.querySelector('.modal-close')?.focus());
+}
+function closeModal(id,restore=true){
+  const el=document.getElementById('modal-'+id);
+  if(!el)return;
+  el.classList.remove('open');document.body.classList.remove('modal-open');
+  if(restore){document.documentElement.style.overflow='';activeModal=null;}
+}
+document.querySelectorAll('.modal-backdrop').forEach(b=>b.addEventListener('click',e=>{if(e.target===b&&activeModal)closeModal(activeModal);}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&activeModal)closeModal(activeModal);});
 
-  // Reset scroll position
-  const body = el.querySelector('.modal-body');
-  if (body) body.scrollTop = 0;
-
-  // Show
-  el.classList.add('open');
-  activeModal = id;
-
-  // Lock page scroll
-  document.documentElement.style.overflow = 'hidden';
-
-  // Focus management
-  requestAnimationFrame(() => {
-    const closeBtn = el.querySelector('.modal-close');
-    if (closeBtn) closeBtn.focus();
+// ─── Contact form ───
+const contactForm=document.getElementById('contactForm');
+const formSuccess=document.getElementById('formSuccess');
+if(contactForm){
+  contactForm.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const submitBtn=contactForm.querySelector('button[type="submit"]');
+    const orig=submitBtn.innerHTML;
+    submitBtn.innerHTML='<i class="fa fa-spinner fa-spin"></i> Sending…';
+    submitBtn.disabled=true;
+    try{
+      await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(contactForm)).toString()});
+      contactForm.style.display='none';formSuccess?.classList.remove('hidden');
+    }catch{submitBtn.innerHTML=orig;submitBtn.disabled=false;}
   });
 }
-
-function closeModal(id, restore = true) {
-  const el = document.getElementById('modal-' + id);
-  if (!el) return;
-
-  el.classList.remove('open');
-  document.body.classList.remove('modal-open');
-
-  if (restore) {
-    document.documentElement.style.overflow = '';
-    activeModal = null;
-  }
-}
-
-// Close on backdrop click
-document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
-  backdrop.addEventListener('click', e => {
-    if (e.target === backdrop && activeModal) closeModal(activeModal);
-  });
-});
-
-// Close on Escape key
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && activeModal) closeModal(activeModal);
-});
-
-// ─── Contact Form ───
-const contactForm = document.getElementById('contactForm');
-const formSuccess = document.getElementById('formSuccess');
-
-if (contactForm) {
-  contactForm.addEventListener('submit', async (e) => {
-    const submitBtn = contactForm.querySelector('[type="submit"]');
-    submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending…';
-    submitBtn.disabled = true;
-
-    // Netlify will handle the actual submission on their servers.
-    // For local preview, simulate success after a moment.
-    // On Netlify hosting, the form posts to their endpoint.
-  });
-}
-
-// ─── Expose openModal globally (for onclick attrs) ───
-window.openModal  = openModal;
-window.closeModal = closeModal;
-window.closeMob   = closeMob;
-window.filter     = filter;
-
 </script>
 </body>
 </html>
