@@ -1240,21 +1240,24 @@ if (_contactForm) {
   });
 }
 <script>
-        // Ofuscación de correo para ATY Global
-        // Asegúrate de que tu enlace HTML tenga el id="partner-mail"
-        const partnerLink = document.getElementById('partner-mail');
-        
-        if (partnerLink) {
-            partnerLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Definimos las partes del correo por separado para engañar a los bots
-                const user = 'partners';
-                const domain = 'atyglobal.com';
-                
-                // Construimos la dirección y abrimos el gestor de correo
-                window.location.href = 'mailto:' + user + '@' + domain;
-            });
-        }
+        // Ofuscación de correo para ATY Global - Protege partners@atyglobal.com
+        document.addEventListener('DOMContentLoaded', function() {
+            const partnerLink = document.getElementById('partner-mail');
+            
+            if (partnerLink) {
+                partnerLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Definimos las partes del correo por separado para engañar a los bots
+                    const user = 'partners';
+                    const domain = 'atyglobal.com';
+                    
+                    // Construimos la dirección y abrimos el gestor de correo
+                    window.location.href = 'mailto:' + user + '@' + domain;
+                });
+            }
+        });
     </script>
+</body>
+</html>
 </body>
 </html>
