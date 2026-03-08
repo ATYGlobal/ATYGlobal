@@ -18,7 +18,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;400;600;800&family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-    <link rel="icon" type="image/png" href="icon-192.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -37,11 +36,11 @@
     </script>
 
     <script>
-        if ('serviceWorker' in navigator) {
+        if ('serviceWorker' in navigator && location.protocol === 'https:') {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js')
                     .then(reg => console.log('SW registered'))
-                    .catch(err => console.log('SW error', err));
+                    .catch(err => console.log('SW skipped:', err.message));
             });
         }
     </script>
@@ -112,11 +111,11 @@ body{background:var(--bg);color:var(--t0);transition:background .5s,color .5s}
 .sec-h2{font-family:'Sora',sans-serif;font-size:clamp(28px,3.8vw,52px);font-weight:800;letter-spacing:-.03em;line-height:1.06;color:var(--t0)}
 
 /* ─── Buttons ─── */
-.btn-p{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#2563eb 0%,#0891b2 100%);color:#fff;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:13px 28px;border-radius:11px;cursor:pointer;position:relative;overflow:hidden;transition:transform .22s cubic-bezier(.16,1,.3,1),box-shadow .22s;text-decoration:none;border:none;box-shadow:0 2px 20px rgba(37,99,235,.25)}
+.btn-p{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#2563eb 0%,#0891b2 100%);color:#fff;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:13px 28px;border-radius:11px;cursor:pointer;position:relative;overflow:hidden;transition:transform .22s cubic-bezier(.16,1,.3,1),box-shadow .22s;text-decoration:none;border:none;box-shadow:0 2px 20px rgba(37,99,235,.25);min-height:44px}
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(37,99,235,.45)}
-.btn-g{display:inline-flex;align-items:center;gap:9px;background:var(--bg-3);color:var(--t1);font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;padding:12px 26px;border-radius:11px;border:1px solid var(--bdr2);cursor:pointer;transition:all .22s cubic-bezier(.16,1,.3,1);text-decoration:none}
+.btn-g{display:inline-flex;align-items:center;gap:9px;background:var(--bg-3);color:var(--t1);font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;padding:12px 26px;border-radius:11px;border:1px solid var(--bdr2);cursor:pointer;transition:all .22s cubic-bezier(.16,1,.3,1);text-decoration:none;min-height:44px}
 .btn-g:hover{color:var(--t0);border-color:rgba(100,160,255,.4);background:var(--bg-4);transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
-.btn-icon{width:42px;height:42px;border-radius:11px;background:var(--bg-3);border:1px solid var(--bdr2);display:flex;align-items:center;justify-content:center;color:var(--t1);cursor:pointer;transition:all .2s}
+.btn-icon{width:44px;height:44px;border-radius:11px;background:var(--bg-3);border:1px solid var(--bdr2);display:flex;align-items:center;justify-content:center;color:var(--t1);cursor:pointer;transition:all .2s}
 .btn-icon:hover{color:var(--t0);background:var(--bg-4);border-color:var(--bdr3)}
 
 /* ─── Calendly pulse ─── */
@@ -332,6 +331,7 @@ body.modal-open .modal-backdrop{filter:none}
   <button class="btn-icon" style="position:absolute;top:20px;right:20px" id="mob-close" aria-label="Close menu"><i class="fa fa-xmark"></i></button>
   <a href="#home"      class="mob-link" onclick="closeMob()">Home</a>
   <a href="#about"     class="mob-link" onclick="closeMob()">About</a>
+  <a href="#services"  class="mob-link" onclick="closeMob()">Services</a>
   <a href="#news"      class="mob-link" onclick="closeMob()">News</a>
   <a href="#careers"   class="mob-link" onclick="closeMob()">Courses</a>
   <a href="#portfolio" class="mob-link" onclick="closeMob()">Portfolio</a>
@@ -350,6 +350,7 @@ body.modal-open .modal-backdrop{filter:none}
     <ul class="hide-mob flex items-center gap-1 list-none" id="navLinks">
       <li><a href="#home"      class="nav-link">Home</a></li>
       <li><a href="#about"     class="nav-link">About</a></li>
+      <li><a href="#services"  class="nav-link">Services</a></li>
       <li><a href="#news"      class="nav-link">News</a></li>
       <li><a href="#careers"   class="nav-link">Courses</a></li>
       <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
@@ -380,7 +381,7 @@ body.modal-open .modal-backdrop{filter:none}
         </h1>
         <div class="sec-label mb-6" data-aos="fade-up" data-aos-delay="160">ATY Global &nbsp;&middot;&nbsp; FTTH &nbsp;&middot;&nbsp; PMO &nbsp;&middot;&nbsp; NextGen EU</div>
         <p class="mb-10 max-w-lg" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:300;line-height:1.9;color:var(--t1)" data-aos="fade-up" data-aos-delay="220">
-          We are a high-performance consultancy bridging <strong style="color:var(--t0);font-weight:500">telecommunications engineering</strong>, PMO excellence, and NextGen EU programme leadership — delivering digital infrastructure that transforms communities across Europe.
+          An independent telecom infrastructure consulting practice specialising in <strong style="color:var(--t0);font-weight:500">FTTH programme delivery</strong>, PMO governance and NextGen EU grant management — built on a decade of operational leadership across Europe.
         </p>
         <div class="flex flex-wrap gap-3 mb-12" data-aos="fade-up" data-aos-delay="280">
           <a href="https://calendly.com/atyglobal" target="_blank" rel="noopener" class="btn-p calendly-btn"><i class="fa fa-calendar-check"></i> Schedule a Strategy Call</a>
@@ -397,10 +398,42 @@ body.modal-open .modal-backdrop{filter:none}
       <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="900">
         <div class="sec-label mb-6" style="justify-content:flex-end">Navigation Matrix</div>
         <div class="grid grid-cols-2 gap-3">
-          <a href="#about" class="mx-card"><div class="mx-icon"><i class="fa fa-building"></i></div><div class="text-sm font-semibold mb-1.5" style="color:var(--t0);letter-spacing:-.01em">Corporate Profile</div><div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:300;color:var(--t1);line-height:1.65">10+ years in FTTH, PMO &amp; NextGen EU leadership across Europe.</div></a>
+          <a href="#about" class="mx-card"><div class="mx-icon"><i class="fa fa-building"></i></div><div class="text-sm font-semibold mb-1.5" style="color:var(--t0);letter-spacing:-.01em">Consulting Practice</div><div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:300;color:var(--t1);line-height:1.65">10+ years of FTTH, PMO &amp; NextGen EU programme leadership across Europe.</div></a>
           <a href="#news" class="mx-card"><div class="mx-icon" style="background:rgba(14,196,212,.1);border-color:rgba(14,196,212,.22);color:#22d3ee"><i class="fa fa-newspaper"></i></div><div class="text-sm font-semibold mb-1.5" style="color:var(--t0);letter-spacing:-.01em">Industry Intelligence</div><div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:300;color:var(--t1);line-height:1.65">M&amp;A, policy &amp; infrastructure insights across Europe.</div></a>
           <a href="#careers" class="mx-card"><div class="mx-icon" style="background:rgba(34,229,139,.1);border-color:rgba(34,229,139,.22);color:#22e58b"><i class="fa fa-graduation-cap"></i></div><div class="text-sm font-semibold mb-1.5" style="color:var(--t0);letter-spacing:-.01em">Certification Hub</div><div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:300;color:var(--t1);line-height:1.65">PMP, PRINCE2, FTTH Design &amp; BIM pathways.</div></a>
           <a href="#partners" class="mx-card"><div class="mx-icon" style="background:rgba(240,180,41,.1);border-color:rgba(240,180,41,.22);color:#fbbf24"><i class="fa fa-handshake"></i></div><div class="text-sm font-semibold mb-1.5" style="color:var(--t0);letter-spacing:-.01em">Partner Network</div><div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:300;color:var(--t1);line-height:1.65">Senior engineers, GIS experts &amp; EU compliance specialists.</div></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════ WHY ATY GLOBAL ══════════════════════════════ -->
+<!-- STRATEGIC ADDITION: Boutique consulting positioning — replaces portfolio-feel ambiguity -->
+<section class="relative py-20" style="z-index:2">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-3 gap-6" data-aos="fade-up">
+      <div class="lg:col-span-1">
+        <div class="sec-label mb-4">The Practice</div>
+        <h2 class="sec-h2" style="font-size:clamp(22px,2.6vw,36px)">Why <span class="gradient-text">ATY Global</span></h2>
+      </div>
+      <div class="lg:col-span-2" style="display:flex;flex-direction:column;justify-content:center">
+        <p style="font-family:'Inter',sans-serif;font-size:14.5px;font-weight:300;color:var(--t1);line-height:1.95;margin-bottom:28px">After a decade managing large-scale FTTH deployments and government-funded programmes across Spain and the EU, ATY Global was established to give organisations access to senior infrastructure programme leadership — without the overhead of a large consultancy. The practice operates with financial rigour, technical depth and direct accountability on every engagement.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+          <div class="kpi-cell" style="padding:18px 20px">
+            <div class="font-mono text-xs mb-2" style="color:var(--accent);letter-spacing:.14em;text-transform:uppercase">Engagement Model</div>
+            <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:300;color:var(--t1);line-height:1.7">Senior-led from day one. No junior handoff. Direct access to the practice lead on every programme.</div>
+          </div>
+          <div class="kpi-cell" style="padding:18px 20px">
+            <div class="font-mono text-xs mb-2" style="color:var(--accent2);letter-spacing:.14em;text-transform:uppercase">Consulting Philosophy</div>
+            <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:300;color:var(--t1);line-height:1.7">Operational clarity over process theatre. Financial discipline at every milestone. Delivery over reporting.</div>
+          </div>
+          <div class="kpi-cell" style="padding:18px 20px">
+            <div class="font-mono text-xs mb-2" style="color:var(--accent3);letter-spacing:.14em;text-transform:uppercase">Scope of Work</div>
+            <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:300;color:var(--t1);line-height:1.7">FTTH deployment, PMO governance, NextGen EU grant management and technical programme oversight.</div>
+          </div>
         </div>
       </div>
     </div>
@@ -414,7 +447,7 @@ body.modal-open .modal-backdrop{filter:none}
   <div class="max-w-6xl mx-auto px-6">
     <div class="mb-16" data-aos="fade-up">
       <div class="sec-label mb-4">About ATY Global</div>
-      <h2 class="sec-h2">A Decade of <span class="gradient-text">Infrastructure Excellence</span></h2>
+      <h2 class="sec-h2">Senior-Led <span class="gradient-text">Infrastructure Practice</span></h2>
     </div>
     <div class="grid lg:grid-cols-2 gap-14 items-start">
       <div data-aos="fade-up" data-aos-delay="80">
@@ -428,7 +461,7 @@ body.modal-open .modal-backdrop{filter:none}
                 <div class="font-mono text-xs mt-1.5" style="color:var(--t2);letter-spacing:.1em;text-transform:uppercase">Managing Director &amp; Strategic Lead</div>
               </div>
             </div>
-            <p style="font-family:'Inter',sans-serif;font-size:13.5px;font-weight:300;color:var(--t1);line-height:1.9;font-style:italic;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--bdr)">"At ATY Global, we bridge the gap between technical engineering and ministerial-level project management — leading large-scale FTTH deployments and government-funded infrastructure programmes across Europe."</p>
+            <p style="font-family:'Inter',sans-serif;font-size:13.5px;font-weight:300;color:var(--t1);line-height:1.9;font-style:italic;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--bdr)">"ATY Global exists to bring senior telecom infrastructure programme leadership directly to the organisations that need it — with the technical depth of an engineering team and the accountability of a founding principal."</p>
             <div>
               <div class="meta-r"><span class="font-mono text-xs" style="color:var(--t2);letter-spacing:.1em;text-transform:uppercase">Headquarters</span><span class="text-sm font-medium" style="color:var(--t0)"> &mdash; Operating EU-wide</span></div>
               <div class="meta-r"><span class="font-mono text-xs" style="color:var(--t2);letter-spacing:.1em;text-transform:uppercase">Specialisation</span><span class="text-sm font-medium" style="color:var(--t0)">FTTH &middot; PMO &middot; NextGen EU</span></div>
@@ -439,7 +472,7 @@ body.modal-open .modal-backdrop{filter:none}
           </div>
           <div class="px-7 py-5 flex gap-3" style="border-top:1px solid var(--bdr);background:var(--bg-2)">
             <a href="https://calendly.com/atyglobal" target="_blank" rel="noopener" class="btn-p flex-1 justify-center calendly-btn"><i class="fa fa-calendar-check"></i> Schedule a Meeting</a>
-            <a href="https://https://www.linkedin.com/company/atyglobal" target="_blank" rel="noopener" class="btn-g px-4"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/company/atyglobal" target="_blank" rel="noopener" class="btn-g px-4" style="min-width:44px;min-height:44px"><i class="fab fa-linkedin"></i></a>
           </div>
         </div>
       </div>
@@ -451,9 +484,67 @@ body.modal-open .modal-backdrop{filter:none}
           <div class="kpi-cell" data-aos="zoom-in" data-aos-delay="400"><div class="font-extrabold mb-1.5" style="color:var(--accent3);font-size:38px;letter-spacing:-.05em;line-height:1">+&#8364;1.5M</div><div class="font-mono text-xs" style="color:var(--t2);letter-spacing:.14em;text-transform:uppercase;line-height:1.6">Net Profit<br>Generated</div></div>
         </div>
         <div class="flex flex-col gap-2">
-          <div class="pillar" data-aos="fade-up" data-aos-delay="300"><div class="pill-icon"><i class="fa fa-network-wired"></i></div><div><div class="text-sm font-semibold mb-1" style="color:var(--t0)">FTTH Engineering</div><div style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;color:var(--t1);line-height:1.65">We deliver end-to-end fiber design, deployment &amp; lifecycle management to ITU-T standards.</div></div></div>
-          <div class="pillar" data-aos="fade-up" data-aos-delay="370"><div class="pill-icon"><i class="fa fa-diagram-project"></i></div><div><div class="text-sm font-semibold mb-1" style="color:var(--t0)">Project Management Office</div><div style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;color:var(--t1);line-height:1.65">Our PMO practice applies PMP, PRINCE2 &amp; Agile to complex multi-million-euro infrastructure programmes.</div></div></div>
-          <div class="pillar" data-aos="fade-up" data-aos-delay="440"><div class="pill-icon"><i class="fa fa-landmark"></i></div><div><div class="text-sm font-semibold mb-1" style="color:var(--t0)">NextGen EU Leadership</div><div style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;color:var(--t1);line-height:1.65">We manage grant compliance, milestone reporting &amp; ministerial-level administration across the EU.</div></div></div>
+          <div class="pillar" data-aos="fade-up" data-aos-delay="300"><div class="pill-icon"><i class="fa fa-network-wired"></i></div><div><div class="text-sm font-semibold mb-1" style="color:var(--t0)">FTTH Engineering</div><div style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;color:var(--t1);line-height:1.65">End-to-end fibre design, deployment and lifecycle management delivered to ITU-T standards.</div></div></div>
+          <div class="pillar" data-aos="fade-up" data-aos-delay="370"><div class="pill-icon"><i class="fa fa-diagram-project"></i></div><div><div class="text-sm font-semibold mb-1" style="color:var(--t0)">Project Management Office</div><div style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;color:var(--t1);line-height:1.65">PMP, PRINCE2 and Agile governance applied to complex multi-million-euro infrastructure programmes.</div></div></div>
+          <div class="pillar" data-aos="fade-up" data-aos-delay="440"><div class="pill-icon"><i class="fa fa-landmark"></i></div><div><div class="text-sm font-semibold mb-1" style="color:var(--t0)">NextGen EU Leadership</div><div style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;color:var(--t1);line-height:1.65">Grant compliance, milestone reporting and ministerial-level administration across EU-funded programmes.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════ SERVICES ══════════════════════════════ -->
+<!-- STRATEGIC ADDITION: Explicit service listing — removes ambiguity about what is offered -->
+<section id="services" class="relative py-24" style="background:var(--bg-1);z-index:2">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="mb-14" data-aos="fade-up">
+      <div class="sec-label mb-4">What We Do</div>
+      <h2 class="sec-h2">Consulting <span class="gradient-text">Services</span></h2>
+      <p style="font-family:'Inter',sans-serif;font-size:14px;font-weight:300;margin-top:12px;max-width:520px;color:var(--t1);line-height:1.85">Specialist engagements for operators, public administrations and infrastructure funds managing complex fibre and digital infrastructure programmes.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="pillar" data-aos="fade-up" data-aos-delay="0">
+        <div class="pill-icon"><i class="fa fa-diagram-project"></i></div>
+        <div>
+          <div class="text-sm font-semibold mb-1" style="color:var(--t0)">Programme Management</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;color:var(--t1);line-height:1.65">End-to-end PMO leadership for multi-million-euro infrastructure programmes — governance, risk, milestone control and stakeholder reporting.</div>
+        </div>
+      </div>
+      <div class="pillar" data-aos="fade-up" data-aos-delay="80">
+        <div class="pill-icon" style="background:rgba(14,196,212,.1);border-color:rgba(14,196,212,.22);color:#22d3ee"><i class="fa fa-network-wired"></i></div>
+        <div>
+          <div class="text-sm font-semibold mb-1" style="color:var(--t0)">FTTH Deployment Leadership</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;color:var(--t1);line-height:1.65">Technical oversight of fibre rollout from design and permitting through to field execution and network acceptance testing.</div>
+        </div>
+      </div>
+      <div class="pillar" data-aos="fade-up" data-aos-delay="160">
+        <div class="pill-icon" style="background:rgba(240,180,41,.1);border-color:rgba(240,180,41,.22);color:#fbbf24"><i class="fa fa-landmark"></i></div>
+        <div>
+          <div class="text-sm font-semibold mb-1" style="color:var(--t0)">NextGen EU Grant Management</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;color:var(--t1);line-height:1.65">Grant compliance, milestone justification and coordination with public administrations for PRTR and NextGen EU-funded deployments.</div>
+        </div>
+      </div>
+      <div class="pillar" data-aos="fade-up" data-aos-delay="0">
+        <div class="pill-icon" style="background:rgba(34,229,139,.1);border-color:rgba(34,229,139,.22);color:#22e58b"><i class="fa fa-magnifying-glass-chart"></i></div>
+        <div>
+          <div class="text-sm font-semibold mb-1" style="color:var(--t0)">Technical Project Oversight</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;color:var(--t1);line-height:1.65">Independent technical review and quality assurance across subcontractor chains, field surveys, GIS deliverables and documentation.</div>
+        </div>
+      </div>
+      <div class="pillar" data-aos="fade-up" data-aos-delay="80">
+        <div class="pill-icon" style="background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.22);color:#c4b5fd"><i class="fa fa-earth-europe"></i></div>
+        <div>
+          <div class="text-sm font-semibold mb-1" style="color:var(--t0)">Infrastructure Strategy</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12.5px;font-weight:300;color:var(--t1);line-height:1.65">Programme scoping, bid preparation, operator coordination and strategic advisory for telecoms infrastructure investments across Europe.</div>
+        </div>
+      </div>
+      <div class="pillar" style="background:var(--bg-2);border-style:dashed;align-items:center;justify-content:center;text-align:center;gap:12px" data-aos="fade-up" data-aos-delay="160">
+        <div>
+          <div class="text-sm font-semibold mb-2" style="color:var(--t1)">Bespoke Engagement?</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:300;color:var(--t2);line-height:1.65;margin-bottom:14px">Every programme is different. Let's discuss your specific requirements.</div>
+          <a href="#contact" class="btn-g" style="font-size:10px;padding:9px 20px;display:inline-flex"><i class="fa fa-arrow-right"></i> Get in Touch</a>
         </div>
       </div>
     </div>
@@ -715,7 +806,7 @@ body.modal-open .modal-backdrop{filter:none}
     <div class="mb-16" data-aos="fade-up">
       <div class="sec-label mb-4">Executive Portfolio</div>
       <h2 class="sec-h2">Featured <span class="gradient-text">Programmes</span></h2>
-      <p style="font-family:'Inter',sans-serif;font-size:14px;font-weight:300;margin-top:12px;max-width:520px;color:var(--t1);line-height:1.85">Core infrastructure programmes managed end-to-end &#8212; from network design and permitting to financial reporting and public administration compliance.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:14px;font-weight:300;margin-top:12px;max-width:520px;color:var(--t1);line-height:1.85">Core infrastructure programmes delivered end-to-end — from network design and permitting through to financial reporting and public administration compliance.</p>
     </div>
     <div class="bento" data-aos="fade-up" data-aos-delay="80">
       <article class="bc bc-feat">
@@ -774,7 +865,7 @@ body.modal-open .modal-backdrop{filter:none}
     <div class="mb-16 text-center" data-aos="fade-up">
       <div class="sec-label mb-4 justify-center">Ecosystem</div>
       <h2 class="sec-h2">Our <span class="gradient-text">Partner Network</span></h2>
-      <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:300;margin-top:16px;max-width:640px;margin-left:auto;margin-right:auto;color:var(--t1);line-height:1.9">We collaborate with an exclusive network of senior engineers, GIS experts and EU regulatory compliance specialists to scale capabilities in line with the scope and complexity of each infrastructure project.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:300;margin-top:16px;max-width:640px;margin-left:auto;margin-right:auto;color:var(--t1);line-height:1.9">ATY Global operates through a curated network of senior engineers, GIS specialists and EU regulatory experts — bringing the right capacity to each programme without the overhead of a permanent team.</p>
     </div>
     <div class="grid md:grid-cols-3 gap-5" data-aos="fade-up" data-aos-delay="80">
       <div class="partner-card">
@@ -803,7 +894,7 @@ body.modal-open .modal-backdrop{filter:none}
       </div>
     </div>
     <div class="text-center mt-14" data-aos="fade-up" data-aos-delay="160">
-      <a href="mailto:partners@atyglobal.com" class="btn-g" style="font-size:11px;padding:14px 36px"><i class="fa fa-envelope"></i> Become a Partner &#8212;</a>
+      <a href="mailto:partners@atyglobal.com" class="btn-g" style="font-size:11px;padding:14px 36px"><i class="fa fa-envelope"></i> Become a Partner</a>
     </div>
     <!-- Trusted by strip -->
     <div class="mt-16 pt-12" style="border-top:1px solid var(--bdr)" data-aos="fade-up" data-aos-delay="100">
@@ -827,8 +918,8 @@ body.modal-open .modal-backdrop{filter:none}
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-16" data-aos="fade-up">
       <div class="sec-label mb-4 justify-center">Get in Touch</div>
-      <h2 class="sec-h2">Start a <span class="gradient-text">Conversation</span></h2>
-      <p style="font-family:'Inter',sans-serif;font-size:14px;font-weight:300;margin-top:12px;max-width:440px;margin-left:auto;margin-right:auto;color:var(--t1);line-height:1.85">Discuss a programme, request portfolio access, or schedule a strategy call.</p>
+      <h2 class="sec-h2">Open to <span class="gradient-text">Discussion</span></h2>
+      <p style="font-family:'Inter',sans-serif;font-size:14px;font-weight:300;margin-top:12px;max-width:440px;margin-left:auto;margin-right:auto;color:var(--t1);line-height:1.85">Whether you have a programme brief, a question about scope, or simply want to explore whether there's a fit — feel free to reach out.</p>
     </div>
     <div class="grid lg:grid-cols-5 gap-6">
       <div class="lg:col-span-3" data-aos="fade-up" data-aos-delay="80">
@@ -847,7 +938,7 @@ body.modal-open .modal-backdrop{filter:none}
           <div id="formSuccess" class="hidden text-center py-12">
             <div style="font-size:52px;margin-bottom:16px">&#9989;</div>
             <div class="font-bold text-lg mb-2" style="color:var(--t0)">Message Sent!</div>
-            <div style="font-family:'Inter',sans-serif;font-size:13px;color:var(--t1)">Our team will get back to you within 24 hours.</div>
+            <div style="font-family:'Inter',sans-serif;font-size:13px;color:var(--t1)">I'll review your message and get back to you within 24 hours.</div>
           </div>
         </div>
       </div>
@@ -861,13 +952,11 @@ body.modal-open .modal-backdrop{filter:none}
         </div>
         <div class="card overflow-hidden">
           <div class="px-5 py-4 font-mono text-xs flex items-center gap-2" style="color:var(--t2);letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid var(--bdr);background:var(--bg-2)"><i class="fa fa-envelope" style="color:var(--accent)"></i> Digital</div>
-          <a href="mailto:solutions@atyglobal.com" class="contact-info-row"><i class="fa fa-envelope text-xs" style="color:var(--t2)"></i> solutions@atyglobal.com</a>
-            <a href="mailto:partners@atyglobal.com" class="contact-info-row"><i class="fa fa-envelope text-xs" style="color:var(--t2)"></i> partners@atyglobal.com</a>
+          <a href="mailto:solutions@atyglobal.com" class="contact-info-row"><i class="fa fa-envelope text-xs" style="color:var(--t2)"></i> Solutions</a>
+          <a href="mailto:partners@atyglobal.com" class="contact-info-row"><i class="fa fa-envelope text-xs" style="color:var(--t2)"></i> Partners</a>
           <a href="https://www.linkedin.com/company/atyglobal" target="_blank" rel="noopener" class="contact-info-row"><i class="fab fa-linkedin text-xs" style="color:var(--t2)"></i> LinkedIn Profile</a>
         </div>
         <a href="https://calendly.com/atyglobal" target="_blank" rel="noopener" class="btn-p w-full justify-center calendly-btn" style="padding:16px;font-size:11px"><i class="fa fa-calendar-plus"></i> Schedule a Strategy Call</a>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -911,8 +1000,8 @@ body.modal-open .modal-backdrop{filter:none}
         <div class="font-mono text-xs mb-6" style="color:var(--t2);letter-spacing:.18em;text-transform:uppercase">Connect</div>
         <div class="flex flex-col gap-3">
           <a href="https://www.linkedin.com/company/atyglobal" target="_blank" rel="noopener" class="footer-link"><i class="fab fa-linkedin" style="color:var(--accent)"></i> LinkedIn Profile</a>
-          <a href="mailto:partners@atyglobal.com" class="footer-link"><i class="fa fa-envelope" style="color:var(--accent2)"></i> partners@atyglobal.com</a>
-          <a href="mailto:solutions@atyglobal.com" class="footer-link"><i class="fa fa-envelope" style="color:var(--accent2)"></i> solutions@atyglobal.com</a>
+          <a href="mailto:solutions@atyglobal.com" class="footer-link"><i class="fa fa-envelope" style="color:var(--accent2)"></i> Solutions</a>
+          <a href="mailto:partners@atyglobal.com" class="footer-link"><i class="fa fa-envelope" style="color:var(--accent2)"></i> Partners</a>
           <a href="https://calendly.com/atyglobal" target="_blank" rel="noopener" class="btn-p w-full justify-center calendly-btn" style="padding:11px 18px;font-size:10px;margin-top:6px"><i class="fa fa-calendar-check"></i> Book a Call</a>
         </div>
       </div>
@@ -938,7 +1027,7 @@ body.modal-open .modal-backdrop{filter:none}
     <div class="modal-body">
       <h3><i class="fa fa-building"></i> Responsible Entity</h3>
       <p><strong>ATY Global</strong> is a professional consultancy led by Abdelbarie T. Yarrou (Managing Director &amp; Strategic Lead), providing telecommunications, FTTH engineering, and NextGen EU programme management services across the EU.</p>
-      <div class="infobox"><div class="infobox-label">Contact Information</div><p><strong>Managing Director:</strong> Abdelbarie T. Yarrou<br><strong>Operating Region:</strong> European Union (Germany, Spain, Netherlands, France)<br><strong>Email:</strong> <a href="mailto:solutions@atyglobal.com">legal@atyglobal.com</a><br><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/company/atyglobal" target="_blank">https://www.linkedin.com/company/atyglobal</a></p></div>
+      <div class="infobox"><div class="infobox-label">Contact Information</div><p><strong>Managing Director:</strong> Abdelbarie T. Yarrou<br><strong>Operating Region:</strong> European Union (Germany, Spain, Netherlands, France)<br><strong>Email:</strong> <a href="mailto:solutions@atyglobal.com">solutions@atyglobal.com</a><br><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/company/atyglobal" target="_blank">https://www.linkedin.com/company/atyglobal</a></p></div>
       <h3><i class="fa fa-globe"></i> Scope of Services</h3>
       <ul><li>FTTH network design, planning and deployment oversight</li><li>Project Management Office (PMO) and programme governance</li><li>NextGen EU grant management and compliance advisory</li><li>Infrastructure stakeholder coordination and reporting</li><li>Professional certification guidance and training</li></ul>
       <h3><i class="fa fa-copyright"></i> Intellectual Property</h3>
@@ -963,7 +1052,7 @@ body.modal-open .modal-backdrop{filter:none}
       <ul><li>Contact enquiries: <strong>Legitimate interest</strong> &#8212; responding to your business enquiry</li><li>No personal data is sold or shared with third parties for marketing</li></ul>
       <h3><i class="fa fa-hand-fist"></i> Your Rights (GDPR)</h3>
       <ul><li>Right to access, rectify, or erase your personal data</li><li>Right to restrict or object to processing</li><li>Right to lodge a complaint with your national DPA</li></ul>
-      <p>Contact: <a href="mailto:solutions@atyglobal.com">legal@atyglobal.com</a></p>
+      <p>Contact: <a href="mailto:solutions@atyglobal.com">solutions@atyglobal.com</a></p>
     </div>
     <div class="modal-foot"><span class="modal-foot-note"><i class="fa fa-calendar-days" style="margin-right:6px"></i>Last updated: January 2026</span><button class="btn-g" onclick="closeModal('privacy-policy')" style="font-size:10px;padding:9px 20px"><i class="fa fa-xmark"></i> Close</button></div>
   </div>
@@ -1248,30 +1337,23 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && _activeMod
 /* =============================================================
    CONTACT FORM
 ============================================================= */
-const _contactForm  = document.getElementById('contactForm');
-const _formSuccess  = document.getElementById('formSuccess');
+const _form    = document.getElementById('contactForm');
+const _success = document.getElementById('formSuccess');
 
-if (_contactForm) {
-  _contactForm.addEventListener('submit', async e => {
-    e.preventDefault();
-    const btn  = _contactForm.querySelector('button[type="submit"]');
-    const orig = btn.innerHTML;
-    btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending&#8230;';
-    btn.disabled  = true;
-    try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(_contactForm)).toString()
-      });
-      _contactForm.style.display = 'none';
-      _formSuccess?.classList.remove('hidden');
-    } catch {
-      btn.innerHTML = orig;
-      btn.disabled  = false;
-    }
-  });
-}
+_form?.addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = _form.querySelector('[type=submit]');
+  if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending…'; }
+  try {
+    const data = new FormData(_form);
+    await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() });
+    _form.style.display = 'none';
+    if (_success) _success.classList.remove('hidden');
+  } catch {
+    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fa fa-paper-plane"></i> Send Message'; }
+  }
+});
+
 </script>
 </body>
 </html>
