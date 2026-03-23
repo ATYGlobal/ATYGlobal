@@ -282,20 +282,36 @@ body.modal-open .modal-backdrop{filter:none}
 ::selection{background:rgba(59,126,248,.3);color:var(--t0)}
 :focus-visible{outline:2px solid rgba(59,126,248,.6);outline-offset:3px;border-radius:6px}
 
-/* ─── Language Switcher ─── */
-.lang-switcher{position:relative}
-.lang-btn{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--t2);background:var(--bg-3);border:1px solid var(--bdr2);border-radius:8px;padding:6px 12px;cursor:pointer;transition:all .2s;white-space:nowrap;min-height:36px}
-.lang-btn:hover{color:var(--t0);border-color:var(--bdr3);background:var(--bg-4)}
-.lang-btn i{font-size:9px;transition:transform .2s}
-.lang-switcher.open .lang-btn i{transform:rotate(180deg)}
-.lang-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:var(--bg-1);border:1px solid var(--bdr2);border-radius:12px;padding:5px 6px;box-shadow:0 20px 50px rgba(0,0,0,.55);display:none;width:auto;white-space:nowrap;z-index:700;opacity:0;transform:translateY(-6px);transition:opacity .18s ease,transform .18s ease;display:none;flex-direction:row;gap:2px}.lang-switcher.open .lang-dropdown{display:flex !important;flex-direction:row;opacity:1;transform:translateY(0)}
-.lang-opt{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--t2);cursor:pointer;transition:background .15s,color .15s}
-.lang-opt:hover{background:var(--bg-2);color:var(--t0)}
-.lang-opt.active{color:#93c5fd;background:rgba(59,126,248,.1)}
-.lang-flag{font-size:15px;line-height:1;flex-shrink:0}
-.lang-name{font-weight:600;flex-shrink:0}
-.lang-native{display:none}
+/* ─── Language Switcher (inline flags) ─── */
+.lang-flags-row {
+  display: flex; align-items: center; gap: 5px;
+}
+.lang-flag-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 9px;
+  background: transparent; border: 1px solid transparent;
+  cursor: pointer; padding: 0;
+  transition: border-color .2s, background .2s, transform .15s;
+  flex-shrink: 0;
+}
+.lang-flag-btn:hover {
+  background: var(--bg-3);
+  border-color: var(--bdr2);
+  transform: scale(1.1);
+}
+.lang-flag-btn.active {
+  background: rgba(59,126,248,.12);
+  border-color: rgba(59,126,248,.4);
+  box-shadow: 0 0 0 2px rgba(59,126,248,.15);
+}
+/* On very small screens, shrink flags slightly */
+@media (max-width: 400px) {
+  .lang-flag-btn { width: 30px; height: 30px; }
+  .lang-flags-row { gap: 3px; }
+}
 /* RTL */
+[dir="rtl"] .lang-flags-row { flex-direction: row-reverse; }
+
 [dir="rtl"] .lang-dropdown{right:auto!important;left:0!important}
 [dir="rtl"] .sec-label::before{background:linear-gradient(270deg,var(--accent),transparent)}
 [dir="rtl"] .proj-list li{padding-right:18px;padding-left:0}
@@ -314,22 +330,7 @@ body.modal-open .modal-backdrop{filter:none}
 .aty-logo:hover .aty-logo-img { opacity: .85; transform: scale(1.05); }
 
 
-/* ─── Mobile language buttons ─── */
-.mob-lang-btn {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px; font-weight: 600; letter-spacing: .1em;
-  color: var(--t2); background: var(--bg-3);
-  border: 1px solid var(--bdr2); border-radius: 10px;
-  padding: 9px 16px; cursor: pointer;
-  transition: all .2s; min-height: 44px;
-}
-.mob-lang-btn:hover,
-.mob-lang-btn.mob-lang-active {
-  color: #93c5fd;
-  background: rgba(59,126,248,.12);
-  border-color: rgba(59,126,248,.38);
-}
+
 
 </style>
 <link rel="manifest" href="manifest.json" />
@@ -362,30 +363,6 @@ body.modal-open .modal-backdrop{filter:none}
   <a href="#portfolio" class="mob-link" onclick="closeMob()">Portfolio</a>
   <a href="#partners"  class="mob-link" onclick="closeMob()">Partners</a>
   <a href="#contact"   class="mob-link" onclick="closeMob()">Contact</a>
-
-  <!-- Language selector — mobile -->
-  <div style="display:flex;gap:8px;margin-top:24px;flex-wrap:wrap;justify-content:center">
-    <button class="mob-lang-btn" data-lang="en" onclick="ATYi18n.apply('en');closeMob()">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="22" height="14" style="border-radius:2px;display:block"><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>
-      EN
-    </button>
-    <button class="mob-lang-btn" data-lang="de" onclick="ATYi18n.apply('de');closeMob()">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" width="22" height="14" style="border-radius:2px;display:block"><rect width="5" height="3" fill="#FFCE00"/><rect width="5" height="2" fill="#DD0000"/><rect width="5" height="1" fill="#000"/></svg>
-      DE
-    </button>
-    <button class="mob-lang-btn" data-lang="fr" onclick="ATYi18n.apply('fr');closeMob()">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="22" height="14" style="border-radius:2px;display:block"><rect width="3" height="2" fill="#ED2939"/><rect width="2" height="2" fill="#fff"/><rect width="1" height="2" fill="#002395"/></svg>
-      FR
-    </button>
-    <button class="mob-lang-btn" data-lang="nl" onclick="ATYi18n.apply('nl');closeMob()">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="22" height="14" style="border-radius:2px;display:block"><rect width="3" height="2" fill="#174B9E"/><rect width="3" height="1.334" fill="#fff"/><rect width="3" height="0.667" fill="#AE1C28"/></svg>
-      NL
-    </button>
-    <button class="mob-lang-btn" data-lang="es" onclick="ATYi18n.apply('es');closeMob()">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="22" height="14" style="border-radius:2px;display:block"><rect width="3" height="2" fill="#c60b1e"/><rect y="0.5" width="3" height="1" fill="#ffc400"/></svg>
-      ES
-    </button>
-  </div>
 </div>
 
 <!-- ══════════════════════════════ NAVBAR ══════════════════════════════ -->
@@ -408,22 +385,25 @@ body.modal-open .modal-backdrop{filter:none}
     </ul>
     <div class="flex items-center gap-2">
       <button class="btn-icon" id="themeBtn" aria-label="Toggle theme"><i class="fa fa-moon text-sm" id="themeIco"></i></button>
-      <a href="https://calendly.com/atyglobal" target="_blank" rel="noopener" class="btn-p hide-mob calendly-btn" style="padding:9px 20px;font-size:10px"><i class="fa fa-calendar-check"></i> Book a Call</a>
-      <!-- i18n Language Switcher -->
-      <div class="lang-switcher hide-mob" id="langSwitcher">
-        <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
-          <i class="fa fa-globe" style="font-size:11px;opacity:.7"></i>
-          <span id="langBtnLabel">EN</span>
-          <i class="fa fa-chevron-down"></i>
+      <!-- i18n Language Switcher — inline flags -->
+      <div class="lang-flags-row" id="langSwitcher">
+        <button class="lang-flag-btn active" data-lang="en" id="langBtn" aria-label="English">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="24" height="16" style="border-radius:3px;display:block"><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>
         </button>
-        <div class="lang-dropdown" id="langDropdown" role="listbox">
-          <div class="lang-opt active" data-lang="en" role="option" aria-selected="true"><span class="lang-flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="20" height="14" style="border-radius:2px;display:block"> <clipPath id="c"><rect width="60" height="30"/></clipPath> <clipPath id="t"><polygon points="30,15 60,0 60,30"/></clipPath> <rect width="60" height="30" fill="#012169"/> <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/> <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/> <path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/> <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/>    </svg></span><span class="lang-name">EN</span><span class="lang-native">English</span></div>
-          <div class="lang-opt" data-lang="de" role="option"><span class="lang-flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" width="20" height="14" style="border-radius:2px;display:block"> <rect width="5" height="3" fill="#FFCE00"/> <rect width="5" height="2" fill="#DD0000"/> <rect width="5" height="1" fill="#000"/>    </svg></span><span class="lang-name">DE</span><span class="lang-native">Deutsch</span></div>
-          <div class="lang-opt" data-lang="fr" role="option"><span class="lang-flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="20" height="14" style="border-radius:2px;display:block"> <rect width="3" height="2" fill="#ED2939"/> <rect width="2" height="2" fill="#fff"/> <rect width="1" height="2" fill="#002395"/>    </svg></span><span class="lang-name">FR</span><span class="lang-native">Français</span></div>
-          <div class="lang-opt" data-lang="nl" role="option"><span class="lang-flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="20" height="14" style="border-radius:2px;display:block"> <rect width="3" height="2" fill="#174B9E"/> <rect width="3" height="1.334" fill="#fff"/> <rect width="3" height="0.667" fill="#AE1C28"/>    </svg></span><span class="lang-name">NL</span><span class="lang-native">Nederlands</span></div>
-          <div class="lang-opt" data-lang="es" role="option"><span class="lang-flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="20" height="14" style="border-radius:2px;display:block"><rect width="3" height="2" fill="#c60b1e"/><rect y="0.5" width="3" height="1" fill="#ffc400"/></svg></span><span class="lang-name">ES</span><span class="lang-native">Español</span></div>
-        </div>
+        <button class="lang-flag-btn" data-lang="de" aria-label="Deutsch">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" width="24" height="16" style="border-radius:3px;display:block"><rect width="5" height="3" fill="#FFCE00"/><rect width="5" height="2" fill="#DD0000"/><rect width="5" height="1" fill="#000"/></svg>
+        </button>
+        <button class="lang-flag-btn" data-lang="fr" aria-label="Français">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;display:block"><rect width="3" height="2" fill="#ED2939"/><rect width="2" height="2" fill="#fff"/><rect width="1" height="2" fill="#002395"/></svg>
+        </button>
+        <button class="lang-flag-btn" data-lang="nl" aria-label="Nederlands">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;display:block"><rect width="3" height="2" fill="#174B9E"/><rect width="3" height="1.334" fill="#fff"/><rect width="3" height="0.667" fill="#AE1C28"/></svg>
+        </button>
+        <button class="lang-flag-btn" data-lang="es" aria-label="Español">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;display:block"><rect width="3" height="2" fill="#c60b1e"/><rect y="0.5" width="3" height="1" fill="#ffc400"/></svg>
+        </button>
       </div>
+      <a href="https://calendly.com/atyglobal" target="_blank" rel="noopener" class="btn-p hide-mob calendly-btn" style="padding:9px 20px;font-size:10px"><i class="fa fa-calendar-check"></i> Book a Call</a>
       <button class="btn-icon" id="mob-tog" aria-label="Open menu"><i class="fa fa-bars text-sm"></i></button>
     </div>
   </div>
@@ -1396,21 +1376,14 @@ if (_contactForm) {
       root.dir=RTL.indexOf(lang)>-1?'rtl':'ltr';
     }
 
-    var lbl=document.getElementById('langBtnLabel');
-    if(lbl && d['lang_label']) lbl.textContent=d['lang_label'];
-
-    document.querySelectorAll('.lang-opt').forEach(function(o){
-      var active=o.dataset.lang===lang;
-      o.classList.toggle('active',active);
-      o.setAttribute('aria-selected',String(active));
+    /* Highlight active flag button */
+    document.querySelectorAll('.lang-flag-btn').forEach(function(o){
+      o.classList.toggle('active', o.dataset.lang===lang);
     });
 
     try{localStorage.setItem('aty_lang',lang);}catch(e){}
 
-    /* Mobile lang buttons */
-    document.querySelectorAll('.mob-lang-btn').forEach(function(b){
-      b.classList.toggle('mob-lang-active', b.dataset.lang===lang);
-    });
+
   }
 
   function detectLang(){
@@ -1426,35 +1399,10 @@ if (_contactForm) {
   }
 
   function initSwitcher(){
-    var sw=document.getElementById('langSwitcher');
-    var btn=document.getElementById('langBtn');
-    var dd=document.getElementById('langDropdown');
-    if(!sw||!btn) return;
-
-    btn.addEventListener('click',function(e){
-      e.stopPropagation();
-      var open=sw.classList.toggle('open');
-      btn.setAttribute('aria-expanded',String(open));
-    });
-
-    document.addEventListener('click',function(){
-      sw.classList.remove('open');
-      btn.setAttribute('aria-expanded','false');
-    });
-
-    if(dd) dd.addEventListener('click',function(e){e.stopPropagation();});
-
-    document.querySelectorAll('.lang-opt').forEach(function(o){
-      o.addEventListener('click',function(){
-        applyLang(o.dataset.lang);
-        sw.classList.remove('open');
-        btn.setAttribute('aria-expanded','false');
+    document.querySelectorAll('.lang-flag-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        applyLang(btn.dataset.lang);
       });
-    });
-
-    btn.addEventListener('keydown',function(e){
-      if(e.key==='Escape'){sw.classList.remove('open');btn.setAttribute('aria-expanded','false');}
-      if(e.key==='Enter'||e.key===' '){e.preventDefault();btn.click();}
     });
   }
 
